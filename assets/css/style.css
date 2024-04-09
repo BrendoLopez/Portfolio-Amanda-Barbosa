@@ -63,6 +63,10 @@ body{
     text-align: end;
 }
 
+.menu_otions a:hover{
+    color: aqua;
+}
+
 .menu_otions li a{
     font-family: "Roboto", sans-serif;
     font-size: 25px;
@@ -115,7 +119,7 @@ body{
     animation: heartbeat 3s ease-in-out infinite both;
 }
 
- @-webkit-keyframes heartbeat {
+@-webkit-keyframes heartbeat {
     from {
         -webkit-transform: scale(1);
         transform: scale(1);
@@ -201,23 +205,16 @@ body{
     height: 100%;
     background-size: 20%;
     background-image: url(/assets/img/remedios-removebg.png);
-    opacity: 0.04;
+    opacity: .5;
     animation: moveBackground 40s linear infinite;
 
 }
 
-.section__fundo{
-    height: 60vh;
-    margin: auto;
-    align-items: center;
-    justify-content: center;
-    background: var(--color-primary);  /* fallback for old browsers */
-    border-radius: 16px 120px 16px 16px;
-}
-
 .section-sobre{
+    width: 100%;
     height: 100vh;
     display: flex;
+
     background-image: url(/assets/img/transferir.svg);
     background-color: #fff;
     animation: moveBackground 20s linear infinite;
@@ -226,35 +223,84 @@ body{
 
 @keyframes moveBackground {
     0% {
-        background-position: 0% 0%;
+        background-position: center top;
     }
     100% {
-        background-position: 100% 100%;
+        background-position: center bottom;
     }
 }
 
 .container__section{
     position: relative;
-    /* display: flex; */
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-}
-
-.section__fundo{
     display: flex;
     width: 50%;
-}
-
-.section__fundo h2{
-    color: var(--color-title-paragrafo);
+    align-items: center;
+    justify-content: right;
 }
 
 .imagem-amanda{
     height: 50vh;
-    /* align-items: left;
-    justify-content: left; */
-    /* border-left: 5px solid var(--color-background-header); */
+    border-left: 5px solid var(--color-background-header);
     border-radius: 600px 600px 50px 600px;
     box-shadow: 5px 5px rgba(0, 0, 0, .3);
+    /* display: block; */
+}
+
+
+.section__fundo{
+    width: 50%;
+    height: 60vh;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    /* align-items: center; */
+    background: var(--color-primary);
+    border-radius: 16px 120px 16px 16px;
+    align-items: center;
+    box-shadow: 1px 1px 5px 1px var(--color-title-paragrafo);
+}
+
+.section__fundo h2{
+    padding-left: 20px;
+    color: var(--color-title-paragrafo);
+}
+
+.section-title{
+    width: 50%;
+    justify-content: center;
+}
+
+.section-title h2{
+    background-color: var(--color-title-paragrafo);
+    color: white;
+    border: 2px solid rgba(0, 0, 0, 0.452);
+    border-radius: 100px;
+    padding: .75em;
+    font-weight: bold;
+    font-size: 1.40em;
+    letter-spacing: 2px;
+    width: 15%;
+}
+
+.paragrafo_left{
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 1.15em;
+    color: var(--color-title-paragrafo);
+    letter-spacing: 2px;
+    text-align: right;
+    margin-right: 1em;
+    margin-left: 1em;
+
+}
+
+.paragrafo-right{
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 1.15em;
+    color: var(--color-title-paragrafo);
+    letter-spacing: 2px;
+    text-align: left;
+    margin-right: 1em;
+    margin-left: 1em;
 }
