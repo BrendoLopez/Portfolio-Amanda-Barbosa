@@ -1,49 +1,1305 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">    
-    <meta name="author" content="Brendo Sarmento Lopes">
-    <meta name="kaywords" content="html, css, Javascript">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Amanda Barbosa</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Amanda Sarmento - Farmacêutica e Esteticista especializada em limpeza de pele profunda e dermocosméticos em Vitória-ES">
+  <meta name="keywords" content="farmacêutica, esteticista, limpeza de pele, dermocosméticos, skincare, vitória-es">
+  <meta name="author" content="Amanda Sarmento">
+  <title>Amanda Sarmento • Farmacêutica & Esteticista</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:        #C8707A;
+      --primary-light:  #E8B4B8;
+      --primary-dark:   #A05060;
+      --secondary:      #8B4A6B;
+      --accent:         #C9A87C;
+      --bg-cream:       #FFF8F6;
+      --bg-blush:       #FDECEA;
+      --bg-section:     #FBF3F0;
+      --text-dark:      #2D1520;
+      --text-medium:    #6B4050;
+      --text-light:     #9B7080;
+      --grad-primary:   linear-gradient(135deg, #C8707A 0%, #8B4A6B 100%);
+      --grad-hero:      linear-gradient(160deg, rgba(139,74,107,0.88) 0%, rgba(200,112,122,0.72) 55%, rgba(201,168,124,0.35) 100%);
+      --grad-subtle:    linear-gradient(135deg, #FFF0EE 0%, #F5E6F0 100%);
+      --shadow-sm:      0 2px 14px rgba(200,112,122,0.13);
+      --shadow-md:      0 8px 32px rgba(200,112,122,0.18);
+      --shadow-lg:      0 20px 60px rgba(139,74,107,0.18);
+      --radius:         1rem;
+      --radius-lg:      1.75rem;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; background: var(--bg-cream); color: var(--text-dark); overflow-x: hidden; }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg-cream); }
+    ::-webkit-scrollbar-thumb { background: var(--primary-light); border-radius: 10px; }
+
+    [id] { scroll-margin-top: 82px; }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 5.5rem 0; }
+
+    /* ── TYPOGRAPHY ── */
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.15;
+    }
+    .grad-text {
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-header {
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .section-header p {
+      font-size: 0.88rem;
+      color: var(--text-medium);
+      margin-top: 0.6rem;
+      line-height: 1.7;
+    }
+    .divider {
+      width: 50px;
+      height: 2px;
+      background: var(--grad-primary);
+      border-radius: 2px;
+      margin: 1rem auto 0;
+    }
+
+    /* ── BUTTONS ── */
+    .btn-rose {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--grad-primary); color: #fff; border: none;
+      padding: 0.82rem 2rem; border-radius: 50px;
+      font-family: 'Poppins', sans-serif; font-size: 0.88rem; font-weight: 500;
+      text-decoration: none; cursor: pointer;
+      box-shadow: 0 6px 24px rgba(200,112,122,0.38);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .btn-rose:hover { transform: translateY(-2px); box-shadow: 0 12px 34px rgba(200,112,122,0.48); color: #fff; }
+
+    .btn-gold {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: linear-gradient(135deg,#C9A87C,#D4B896); color: #2D1520; border: none;
+      padding: 0.82rem 2rem; border-radius: 50px;
+      font-family: 'Poppins', sans-serif; font-size: 0.88rem; font-weight: 600;
+      text-decoration: none; cursor: pointer;
+      box-shadow: 0 6px 24px rgba(201,168,124,0.45);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 12px 34px rgba(201,168,124,0.55); color: #2D1520; }
+
+    .btn-outline-white {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,255,255,0.12); color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.65);
+      padding: 0.82rem 2rem; border-radius: 50px;
+      font-family: 'Poppins', sans-serif; font-size: 0.88rem; font-weight: 500;
+      text-decoration: none; cursor: pointer; backdrop-filter: blur(6px);
+      transition: background .3s, border-color .3s;
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.25); border-color: #fff; color: #fff; }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 1.1rem 0; transition: all .4s ease;
+    }
+    .navbar.scrolled {
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 2px 28px rgba(200,112,122,0.1);
+      padding: 0.75rem 0;
+    }
+    .navbar .container { display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+    .nav-logo { height: 40px; width: auto; }
+    .nav-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem; font-weight: 600;
+      color: #fff; transition: color .4s;
+    }
+    .navbar.scrolled .nav-name { color: var(--text-dark); }
+    .nav-links { display: flex; align-items: center; gap: 1.8rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.83rem; font-weight: 500; color: rgba(255,255,255,0.9);
+      text-decoration: none; letter-spacing: 0.4px;
+      position: relative; transition: color .3s;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1.5px; background: var(--accent); transition: width .3s;
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .navbar.scrolled .nav-links a { color: var(--text-medium); }
+    .navbar.scrolled .nav-links a:hover { color: var(--primary); }
+    .nav-cta {
+      font-size: 0.82rem; font-weight: 500; color: #fff;
+      background: var(--grad-primary); padding: 0.58rem 1.5rem; border-radius: 50px;
+      text-decoration: none; box-shadow: 0 4px 16px rgba(200,112,122,0.4);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(200,112,122,0.5); color: #fff; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: background .4s; }
+    .navbar.scrolled .hamburger span { background: var(--text-dark); }
+
+    /* Mobile overlay */
+    .mobile-menu {
+      position: fixed; inset: 0; background: rgba(45,21,32,0.97); z-index: 1100;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.8rem;
+      transform: translateX(100%); transition: transform .4s ease;
+    }
+    .mobile-menu.open { transform: translateX(0); }
+    .mobile-menu a {
+      font-family: 'Cormorant Garamond', serif; font-size: 2rem;
+      color: rgba(255,255,255,0.9); text-decoration: none; transition: color .3s;
+    }
+    .mobile-menu a:hover { color: var(--primary-light); }
+    .mobile-close {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      background: none; border: none; color: #fff; font-size: 1.4rem; cursor: pointer;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      background: url('assets/img/medicine-capsules-global-health-with-geometric-pattern-digital-remix-1.jpg') center/cover no-repeat;
+      background-attachment: fixed; overflow: hidden;
+    }
+    .hero-overlay { position: absolute; inset: 0; background: var(--grad-hero); }
+    .hero-deco {
+      position: absolute; border-radius: 50%; opacity: 0.12;
+      background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+    }
+    .hero-deco-1 { width: 520px; height: 520px; top: -120px; right: -120px; }
+    .hero-deco-2 { width: 280px; height: 280px; bottom: 60px; left: -60px; background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%); }
+    .hero-body {
+      position: relative; z-index: 2;
+      text-align: center; max-width: 780px; padding: 2rem 1.5rem;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,255,255,0.13); backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.28); color: rgba(255,255,255,0.95);
+      font-size: 0.76rem; font-weight: 500; letter-spacing: 2.5px;
+      text-transform: uppercase; padding: 0.45rem 1.4rem; border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.8rem, 9vw, 7.5rem);
+      font-weight: 300; color: #fff; line-height: 0.95;
+      margin-bottom: 1.1rem; letter-spacing: -1px;
+    }
+    .hero-title strong { display: block; font-weight: 600; }
+    .hero-sub {
+      font-size: 1rem; color: rgba(255,255,255,0.86);
+      font-weight: 300; line-height: 1.75; margin-bottom: 2.5rem;
+    }
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .hero-scroll {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      color: rgba(255,255,255,0.65); font-size: 0.7rem; letter-spacing: 2px;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .scroll-line { width: 1px; height: 40px; background: rgba(255,255,255,0.45); animation: blink 1.6s ease-in-out infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+    /* ── STATS ── */
+    .stats-bar { background: #fff; box-shadow: 0 4px 40px rgba(200,112,122,0.07); padding: 2.2rem 0; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); }
+    .stat-item {
+      text-align: center; padding: 1rem 0.5rem;
+      border-right: 1px solid rgba(200,112,122,0.12);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem; font-weight: 700; line-height: 1;
+      background: var(--grad-primary); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .stat-lbl { font-size: 0.76rem; color: var(--text-light); margin-top: 0.2rem; }
+
+    /* ── ABOUT ── */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: center; }
+    .img-wrap { position: relative; }
+    .img-deco {
+      position: absolute; top: -18px; left: -18px; right: 20px; bottom: 20px;
+      border: 2px solid var(--primary-light); border-radius: var(--radius-lg);
+    }
+    .profile-img { width: 100%; max-width: 420px; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); position: relative; z-index: 1; display: block; }
+    .exp-badge {
+      position: absolute; bottom: -14px; right: 10px; z-index: 2;
+      width: 98px; height: 98px; border-radius: 50%;
+      background: var(--grad-primary); color: #fff;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      box-shadow: 0 8px 28px rgba(200,112,122,0.45);
+    }
+    .exp-badge-num { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 700; line-height: 1; }
+    .exp-badge-txt { font-size: 0.58rem; text-align: center; line-height: 1.3; opacity: .9; }
+    .about-text { padding-left: 0.5rem; }
+    .about-list { list-style: none; margin: 1.4rem 0 1.8rem; display: flex; flex-direction: column; gap: 0.8rem; }
+    .about-list li { display: flex; align-items: flex-start; gap: 0.7rem; font-size: 0.88rem; color: var(--text-medium); line-height: 1.55; }
+    .check-icon {
+      width: 22px; height: 22px; min-width: 22px; border-radius: 50%;
+      background: var(--grad-primary); color: #fff;
+      display: flex; align-items: center; justify-content: center; font-size: 0.66rem; margin-top: 1px;
+    }
+    .location-note { font-size: 0.8rem; color: var(--text-light); margin-bottom: 1.8rem; }
+    .location-note i { color: var(--primary); margin-right: 0.3rem; }
+
+    /* ── SERVICES ── */
+    .section-services { background: var(--bg-blush); position: relative; overflow: hidden; }
+    .section-services::before {
+      content: ''; position: absolute; top: -120px; right: -120px;
+      width: 380px; height: 380px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,124,0.14) 0%, transparent 70%);
+    }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px,1fr)); gap: 1.4rem; margin-top: 3rem; }
+    .service-card {
+      background: #fff; border-radius: var(--radius); padding: 2.2rem 1.8rem;
+      box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
+      transition: transform .4s, box-shadow .4s;
+    }
+    .service-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 3px; background: var(--grad-primary);
+      transform: scaleX(0); transition: transform .4s ease;
+    }
+    .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .service-card:hover::after { transform: scaleX(1); }
+    .service-num {
+      position: absolute; top: 1.2rem; right: 1.4rem;
+      font-family: 'Cormorant Garamond', serif; font-size: 3rem;
+      font-weight: 700; color: rgba(200,112,122,0.07); line-height: 1; user-select: none;
+    }
+    .svc-icon {
+      width: 60px; height: 60px; border-radius: var(--radius);
+      background: var(--grad-subtle); display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; color: var(--primary); margin-bottom: 1.3rem; transition: all .4s;
+    }
+    .service-card:hover .svc-icon { background: var(--grad-primary); color: #fff; }
+    .svc-title { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.6rem; }
+    .svc-desc { font-size: 0.85rem; color: var(--text-medium); line-height: 1.7; }
+
+    /* ── GALLERY ── */
+    .gallery-grid { display: grid; grid-template-columns: repeat(3,1fr); grid-template-rows: 260px 260px; gap: 1rem; margin-top: 3rem; }
+    .g-item { position: relative; overflow: hidden; border-radius: var(--radius); }
+    .g-item:nth-child(1) { grid-column: 1 / 3; }
+    .g-item:nth-child(4) { grid-column: 2 / 4; }
+    .g-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .g-item:hover img { transform: scale(1.06); }
+    .g-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, transparent 40%, rgba(139,74,107,0.72));
+      opacity: 0; transition: opacity .4s;
+      display: flex; align-items: flex-end; padding: 1.2rem;
+    }
+    .g-item:hover .g-overlay { opacity: 1; }
+    .g-caption { color: #fff; font-size: 0.88rem; font-weight: 500; }
+
+    /* ── TESTIMONIALS ── */
+    .section-testimonials { background: var(--bg-section); }
+    .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(275px,1fr)); gap: 1.4rem; margin-top: 3rem; }
+    .testi-card {
+      background: #fff; border-radius: var(--radius); padding: 2rem;
+      box-shadow: var(--shadow-sm); transition: transform .3s, box-shadow .3s;
+    }
+    .testi-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .stars { color: var(--accent); letter-spacing: 2px; font-size: 0.95rem; margin-bottom: 1rem; }
+    .testi-text { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: var(--text-medium); line-height: 1.7; margin-bottom: 1.5rem; }
+    .testi-author { display: flex; align-items: center; gap: 0.7rem; }
+    .testi-av {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--grad-subtle);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600;
+      color: var(--primary); border: 2px solid var(--primary-light);
+      min-width: 42px;
+    }
+    .testi-name { font-weight: 600; font-size: 0.86rem; color: var(--text-dark); }
+    .testi-svc { font-size: 0.74rem; color: var(--text-light); }
+
+    /* ── CONTACT ── */
+    .contact-card {
+      display: grid; grid-template-columns: 1fr 1.5fr;
+      background: #fff; border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: var(--shadow-lg); margin-top: 3rem;
+    }
+    .contact-left {
+      background: var(--grad-primary); color: #fff;
+      padding: 3rem 2.5rem; position: relative; overflow: hidden;
+    }
+    .contact-left::before {
+      content: ''; position: absolute; bottom: -80px; right: -80px;
+      width: 220px; height: 220px; border-radius: 50%; background: rgba(255,255,255,0.07);
+    }
+    .contact-left-title { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .contact-left-sub { opacity: .84; font-size: 0.86rem; line-height: 1.65; margin-bottom: 2.5rem; }
+    .cinfo-list { list-style: none; display: flex; flex-direction: column; gap: 1.2rem; }
+    .cinfo-item { display: flex; align-items: flex-start; gap: 1rem; }
+    .cinfo-icon {
+      width: 40px; height: 40px; min-width: 40px; border-radius: 0.7rem;
+      background: rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center; font-size: 1rem;
+    }
+    .cinfo-lbl { font-size: 0.68rem; opacity: .75; letter-spacing: 1px; text-transform: uppercase; }
+    .cinfo-val { font-size: 0.9rem; font-weight: 500; color: #fff; text-decoration: none; display: block; }
+    .cinfo-val:hover { opacity: .85; color: #fff; }
+    .csocial { margin-top: 2.5rem; display: flex; gap: 0.7rem; }
+    .csocial a {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: rgba(255,255,255,0.18); color: #fff;
+      display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 0.95rem;
+      transition: background .3s;
+    }
+    .csocial a:hover { background: rgba(255,255,255,0.35); }
+    .contact-right { padding: 3rem 2.5rem; }
+    .contact-right h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.4rem; }
+    .contact-right p { font-size: 0.83rem; color: var(--text-light); margin-bottom: 2rem; }
+    .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .fgroup { margin-bottom: 1.2rem; }
+    .flabel { display: block; font-size: 0.78rem; font-weight: 500; color: var(--text-medium); letter-spacing: .4px; margin-bottom: 0.38rem; }
+    .finput {
+      width: 100%; padding: 0.8rem 1rem; border: 1.5px solid rgba(200,112,122,0.18);
+      border-radius: 0.7rem; font-family: 'Poppins', sans-serif; font-size: 0.86rem;
+      color: var(--text-dark); background: var(--bg-cream);
+      outline: none; transition: all .3s;
+    }
+    .finput:focus { border-color: var(--primary); background: #fff; box-shadow: 0 0 0 3px rgba(200,112,122,0.1); }
+    .finput::placeholder { color: rgba(107,64,80,0.38); }
+    textarea.finput { resize: vertical; min-height: 110px; }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--text-dark); color: rgba(255,255,255,0.65); padding: 3.5rem 0 2rem; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 1.8rem; }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 600; color: #fff; display: block; margin-bottom: 0.7rem; }
+    .footer-desc { font-size: 0.84rem; line-height: 1.7; margin-bottom: 1.4rem; }
+    .footer-soc { display: flex; gap: 0.65rem; }
+    .footer-soc a {
+      width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.65); text-decoration: none;
+      display: flex; align-items: center; justify-content: center; font-size: 0.88rem;
+      transition: all .3s;
+    }
+    .footer-soc a:hover { background: var(--primary); color: #fff; }
+    .footer-head { font-size: 0.7rem; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+    .footer-links a { font-size: 0.84rem; color: rgba(255,255,255,0.6); text-decoration: none; transition: color .3s; }
+    .footer-links a:hover { color: var(--primary-light); }
+    .footer-bottom { display: flex; justify-content: space-between; font-size: 0.78rem; flex-wrap: wrap; gap: 0.5rem; }
+
+    /* ── WHATSAPP FLOAT ── */
+    .wa-btn {
+      position: fixed; bottom: 1.8rem; right: 1.8rem; z-index: 998;
+      width: 54px; height: 54px; border-radius: 50%; background: #25D366;
+      color: #fff; font-size: 1.45rem; text-decoration: none;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.5);
+      animation: wapulse 2.5s ease-in-out infinite; transition: transform .3s;
+    }
+    .wa-btn:hover { transform: scale(1.1); color: #fff; animation: none; box-shadow: 0 10px 32px rgba(37,211,102,0.55); }
+    @keyframes wapulse { 0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)} 50%{box-shadow:0 6px 24px rgba(37,211,102,0.5),0 0 0 10px rgba(37,211,102,0.13)} }
+
+    /* ── INSTAGRAM FEED ── */
+    .section-feed { background: var(--bg-section); }
+    .feed-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.6rem;
+      margin-top: 3rem;
+    }
+
+    /* Card */
+    .post-card {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 18px rgba(200,112,122,0.1);
+      transition: transform .35s, box-shadow .35s;
+      display: flex;
+      flex-direction: column;
+    }
+    .post-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(200,112,122,0.18); }
+
+    /* Card Header */
+    .post-header {
+      display: flex; align-items: center; gap: 0.65rem;
+      padding: 0.85rem 1rem;
+    }
+    .post-avatar-wrap {
+      width: 38px; height: 38px; min-width: 38px;
+      border-radius: 50%;
+      padding: 2px;
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    }
+    .post-avatar {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #fff;
+      display: block;
+    }
+    .post-avatar-placeholder {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      background: var(--grad-primary);
+      border: 2px solid #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; font-weight: 700; color: #fff;
+    }
+    .post-meta { flex: 1; min-width: 0; }
+    .post-username { font-size: 0.82rem; font-weight: 600; color: var(--text-dark); line-height: 1.2; }
+    .post-location { font-size: 0.72rem; color: var(--text-light); }
+    .post-more { color: var(--text-light); font-size: 1.1rem; cursor: pointer; padding: 0.2rem; }
+
+    /* Image */
+    .post-img-wrap {
+      position: relative; overflow: hidden;
+      aspect-ratio: 1 / 1;
+      cursor: pointer;
+    }
+    .post-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .4s ease;
+      display: block;
+    }
+    .post-card:hover .post-img-wrap img { transform: scale(1.03); }
+    .post-img-overlay {
+      position: absolute; inset: 0;
+      background: rgba(45,21,32,0.35);
+      opacity: 0; transition: opacity .3s;
+      display: flex; align-items: center; justify-content: center; gap: 1.5rem;
+    }
+    .post-card:hover .post-img-overlay { opacity: 1; }
+    .pio-stat { color: #fff; font-size: 0.92rem; font-weight: 600; display: flex; align-items: center; gap: 0.35rem; }
+
+    /* Actions */
+    .post-actions {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.7rem 1rem 0.4rem;
+    }
+    .post-btn {
+      background: none; border: none; cursor: pointer; padding: 0.2rem;
+      font-size: 1.3rem; color: var(--text-dark); transition: transform .2s, color .2s;
+      line-height: 1;
+    }
+    .post-btn:hover { transform: scale(1.15); }
+    .post-btn.liked { color: #e0334c; }
+    .post-btn.liked i::before { content: "\f415"; } /* bi-heart-fill */
+    .post-btn-share { margin-left: auto; }
+
+    /* Body */
+    .post-body { padding: 0 1rem 1rem; flex: 1; display: flex; flex-direction: column; }
+    .post-likes { font-size: 0.82rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.45rem; }
+    .post-caption { font-size: 0.82rem; color: var(--text-dark); line-height: 1.55; margin-bottom: 0.6rem; }
+    .post-caption strong { font-weight: 600; }
+    .post-caption .hashtag { color: var(--primary-dark); font-weight: 500; }
+    .post-view-comments {
+      font-size: 0.78rem; color: var(--text-light); cursor: pointer;
+      background: none; border: none; padding: 0; text-align: left;
+      margin-bottom: 0.6rem; transition: color .2s;
+    }
+    .post-view-comments:hover { color: var(--primary); }
+    .post-comments { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 0.6rem; }
+    .post-comment { font-size: 0.79rem; color: var(--text-medium); line-height: 1.4; }
+    .post-comment strong { font-weight: 600; color: var(--text-dark); }
+    .post-comment .comment-heart {
+      float: right; color: var(--text-light); font-size: 0.75rem; cursor: pointer;
+      transition: color .2s;
+    }
+    .post-comment .comment-heart:hover { color: #e0334c; }
+    .post-time { font-size: 0.7rem; color: var(--text-light); letter-spacing: .3px; margin-top: auto; padding-top: 0.4rem; border-top: 1px solid rgba(200,112,122,0.08); }
+
+    /* Add comment row */
+    .post-add-comment {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.6rem 1rem;
+      border-top: 1px solid rgba(200,112,122,0.1);
+    }
+    .post-add-comment input {
+      flex: 1; border: none; outline: none; font-family: 'Poppins', sans-serif;
+      font-size: 0.78rem; color: var(--text-dark); background: transparent;
+    }
+    .post-add-comment input::placeholder { color: var(--text-light); }
+    .post-add-comment button {
+      background: none; border: none; cursor: pointer;
+      font-size: 0.78rem; font-weight: 600; color: var(--primary);
+      padding: 0; transition: opacity .2s;
+    }
+    .post-add-comment button:hover { opacity: .75; }
+
+    /* Feed CTA */
+    .feed-cta { text-align: center; margin-top: 2.5rem; }
+    .btn-insta {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: #fff; border: none;
+      padding: 0.82rem 2.2rem; border-radius: 50px;
+      font-family: 'Poppins', sans-serif; font-size: 0.88rem; font-weight: 500;
+      text-decoration: none; cursor: pointer;
+      box-shadow: 0 6px 24px rgba(220,39,67,0.3);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .btn-insta:hover { transform: translateY(-2px); box-shadow: 0 12px 34px rgba(220,39,67,0.4); color: #fff; }
+
+    /* Modal */
+    .post-modal-backdrop {
+      display: none; position: fixed; inset: 0; z-index: 2000;
+      background: rgba(0,0,0,0.82); align-items: center; justify-content: center;
+      padding: 1rem;
+    }
+    .post-modal-backdrop.open { display: flex; }
+    .post-modal {
+      background: #fff; border-radius: 14px; overflow: hidden;
+      display: grid; grid-template-columns: 1fr 380px;
+      max-width: 900px; width: 100%; max-height: 90vh;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+      animation: modalIn .3s ease;
+    }
+    @keyframes modalIn { from{opacity:0;transform:scale(.94)} to{opacity:1;transform:scale(1)} }
+    .modal-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .modal-right {
+      display: flex; flex-direction: column;
+      border-left: 1px solid rgba(200,112,122,0.12);
+      max-height: 90vh;
+    }
+    .modal-header {
+      display: flex; align-items: center; gap: 0.65rem;
+      padding: 1rem 1.1rem;
+      border-bottom: 1px solid rgba(200,112,122,0.1);
+    }
+    .modal-close {
+      margin-left: auto; background: none; border: none;
+      font-size: 1.25rem; cursor: pointer; color: var(--text-medium);
+      padding: 0.2rem; transition: color .2s;
+    }
+    .modal-close:hover { color: var(--text-dark); }
+    .modal-comments {
+      flex: 1; overflow-y: auto; padding: 1rem 1.1rem;
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .modal-comments::-webkit-scrollbar { width: 4px; }
+    .modal-comments::-webkit-scrollbar-thumb { background: var(--primary-light); border-radius: 4px; }
+    .modal-caption { font-size: 0.83rem; line-height: 1.6; color: var(--text-dark); }
+    .modal-caption strong { font-weight: 600; margin-right: 0.35rem; }
+    .modal-comment-item { display: flex; gap: 0.55rem; }
+    .modal-comment-av {
+      width: 30px; height: 30px; min-width: 30px; border-radius: 50%;
+      background: var(--grad-subtle);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif; font-size: 0.9rem;
+      font-weight: 700; color: var(--primary);
+    }
+    .modal-comment-text { font-size: 0.8rem; line-height: 1.5; color: var(--text-dark); }
+    .modal-comment-text strong { font-weight: 600; margin-right: 0.3rem; }
+    .modal-comment-time { font-size: 0.68rem; color: var(--text-light); margin-top: 0.15rem; }
+    .modal-actions {
+      padding: 0.7rem 1.1rem 0.4rem;
+      border-top: 1px solid rgba(200,112,122,0.1);
+    }
+    .modal-likes { font-size: 0.82rem; font-weight: 600; color: var(--text-dark); margin-top: 0.3rem; }
+    .modal-add {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.7rem 1.1rem;
+      border-top: 1px solid rgba(200,112,122,0.1);
+    }
+    .modal-add input {
+      flex: 1; border: none; outline: none; font-family: 'Poppins', sans-serif;
+      font-size: 0.78rem; color: var(--text-dark);
+    }
+    .modal-add input::placeholder { color: var(--text-light); }
+    .modal-add button {
+      background: none; border: none; cursor: pointer;
+      font-size: 0.78rem; font-weight: 600; color: var(--primary);
+    }
+
+    @media(max-width:820px) {
+      .post-modal { grid-template-columns: 1fr; grid-template-rows: 300px 1fr; max-height: 92vh; }
+      .modal-img { height: 300px; }
+      .modal-right { border-left: none; border-top: 1px solid rgba(200,112,122,0.12); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:992px) {
+      .nav-links,.nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media(max-width:992px) {
+      .feed-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media(max-width:768px) {
+      section { padding: 4rem 0; }
+      .feed-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2,1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-text { padding-left: 0; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px; }
+      .g-item:nth-child(1) { grid-column: 1 / 3; }
+      .g-item:nth-child(4) { grid-column: 1 / 3; }
+      .contact-card { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { justify-content: center; text-align: center; }
+      .frow { grid-template-columns: 1fr; }
+    }
+    @media(max-width:480px) {
+      .hero-title { font-size: 3.4rem; }
+      .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .g-item:nth-child(1),.g-item:nth-child(4) { grid-column: 1; }
+      .g-item img { min-height: 200px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="hero-header">
-        <header class="header_nav">
-            <nav>
-                <img src="assets/img/logo-farmacia-removebg-preview.png" class="logo__image" alt="Logo da farmacia rosa">
-                <p class="logo__name">Amanda Barbosa</p>
-                <ul class="menu_otions">
-                    <li><a href="#home" class="home">Home</a></li>
-                    <li><a href="#sobre" class="sobre">Sobre</a></li>
-                    <li><a href="#experiencias" class="experiencias">Experiências</a></li>
-                    <li><a href="#projetos" class="projetos">Projetos</a></li>
-                    <li><a href="#contato" class="contato">Contato</a></li>
-                </ul>
-            </nav>
-        </header>
 
-        <section class="section-home" id="home">
-            <div class="home-text heartbeat">
-                <span class="apresentacao">Olá!</span>
-                <p class="profile-info">Sou Amanda, <br> farmacêutica <br> na Farmácia Alquimia e manipulação, com sede em <br> Vitória-ES Brasil.</p>
-                <p class="experiencia-info">Com mais de 4 anos de experiência, criando projetos e manipulando receitas. <br> implementando ótimas experiências valiosas para o meu crescimento profissional.</p>
-            </div>
-        </section>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobile()"><i class="bi bi-x-lg"></i></button>
+  <a href="#home"        onclick="closeMobile()">Início</a>
+  <a href="#sobre"       onclick="closeMobile()">Sobre</a>
+  <a href="#servicos"    onclick="closeMobile()">Serviços</a>
+  <a href="#galeria"     onclick="closeMobile()">Galeria</a>
+  <a href="#depoimentos" onclick="closeMobile()">Depoimentos</a>
+  <a href="#contato"     onclick="closeMobile()">Contato</a>
+  <a href="https://agenda-amanda.netlify.app/" target="_blank" class="btn-rose" style="margin-top:.5rem">Agendar Consulta</a>
+</div>
 
-        <section class="section-sobre" id="sobre">
-            <div class="section__fundo heartbeat">
-                <div class="container__section">
-                    <img src="/assets/img/profile-amanda.jpg" class="imagem-amanda" alt="Foto da Amanda Barbosa">
-                </div>
-                <div class="section-title">
-                    <h2>Hello!</h2>
-                    <p class="paragrafo_left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ex consectetur laudantium, impedit omnis aliquam accusantium pariatur dolor atque voluptatem! Reiciendis temporibus est voluptates modi nihil quo alias blanditiis ipsa.</p>
-                    <p class="paragrafo-right">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non ut accusamus cumque repellendus asperiores laudantium, blanditiis, vitae dolore, rem vero architecto error dignissimos labore minima.</p>
-                </div>
-            </div>
-        </section>
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a class="nav-brand" href="#home">
+      <img src="assets/img/logo-farmacia-removebg-preview.png" alt="Amanda Sarmento" class="nav-logo">
+      <span class="nav-name">Amanda Sarmento</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home">Início</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#depoimentos">Depoimentos</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <a href="https://agenda-amanda.netlify.app/" target="_blank" class="nav-cta">Agendar</a>
+    <div class="hamburger" onclick="openMobile()">
+      <span></span><span></span><span></span>
     </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-overlay"></div>
+  <div class="hero-deco hero-deco-1"></div>
+  <div class="hero-deco hero-deco-2"></div>
+  <div class="hero-body">
+    <div class="hero-tag"><i class="bi bi-stars"></i> Farmacêutica &amp; Esteticista</div>
+    <h1 class="hero-title">Amanda<strong>Sarmento</strong></h1>
+    <p class="hero-sub">
+      Especializada em limpeza de pele profunda, dermocosméticos<br>
+      e protocolos personalizados de skincare — Vitória, ES.
+    </p>
+    <div class="hero-btns">
+      <a href="https://agenda-amanda.netlify.app/" target="_blank" rel="noopener" class="btn-gold">
+        <i class="bi bi-calendar-check-fill"></i> Agendar Consulta
+      </a>
+      <a href="#servicos" class="btn-outline-white">
+        Conhecer Serviços <i class="bi bi-arrow-down"></i>
+      </a>
+    </div>
+  </div>
+  <a href="#sobre" class="hero-scroll">scroll<div class="scroll-line"></div></a>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item" data-aos="fade-up" data-aos-delay="0">
+        <div class="stat-num">4+</div>
+        <div class="stat-lbl">Anos de Experiência</div>
+      </div>
+      <div class="stat-item" data-aos="fade-up" data-aos-delay="80">
+        <div class="stat-num">4</div>
+        <div class="stat-lbl">Especialidades</div>
+      </div>
+      <div class="stat-item" data-aos="fade-up" data-aos-delay="160">
+        <div class="stat-num">100+</div>
+        <div class="stat-lbl">Clientes Atendidas</div>
+      </div>
+      <div class="stat-item" data-aos="fade-up" data-aos-delay="240">
+        <div class="stat-num">★ 5</div>
+        <div class="stat-lbl">Avaliação Média</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="sobre">
+  <div class="container">
+    <div class="about-grid">
+      <div data-aos="fade-right">
+        <div class="img-wrap">
+          <div class="img-deco"></div>
+          <img src="assets/img/profile-amanda.jpg" alt="Amanda Sarmento – Farmacêutica e Esteticista" class="profile-img">
+          <div class="exp-badge">
+            <span class="exp-badge-num">4+</span>
+            <span class="exp-badge-txt">anos de exp.</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-text" data-aos="fade-left">
+        <p class="section-label">Quem sou eu</p>
+        <h2 class="section-title" style="margin-bottom:1.2rem">
+          Cuidado que<br><span class="grad-text">transforma</span>
+        </h2>
+        <p style="color:var(--text-medium);font-size:.9rem;line-height:1.8;margin-bottom:1rem">
+          Sou farmacêutica formada, apaixonada pela estética facial e pelo poder dos dermocosméticos na saúde da pele. Cuido com ciência, carinho e segurança — porque sua pele merece o melhor.
+        </p>
+        <ul class="about-list">
+          <li><div class="check-icon"><i class="bi bi-check"></i></div><span>Mais de 4 anos de experiência em manipulação e estética facial</span></li>
+          <li><div class="check-icon"><i class="bi bi-check"></i></div><span>Protocolos personalizados de limpeza de pele profunda</span></li>
+          <li><div class="check-icon"><i class="bi bi-check"></i></div><span>Orientação especializada em dermocosméticos e skincare</span></li>
+          <li><div class="check-icon"><i class="bi bi-check"></i></div><span>Atendimento humanizado com foco em resultados naturais</span></li>
+        </ul>
+        <p class="location-note"><i class="bi bi-geo-alt-fill"></i>Atendimento em Vitória — ES</p>
+        <a href="#contato" class="btn-rose">Falar Comigo <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section-services" id="servicos">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <p class="section-label">O que ofereço</p>
+      <h2 class="section-title">Serviços Especializados</h2>
+      <p>Tratamentos pensados para a saúde e o bem-estar da sua pele.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+        <span class="service-num">01</span>
+        <div class="svc-icon"><i class="bi bi-droplet-half"></i></div>
+        <h3 class="svc-title">Limpeza de Pele Profunda</h3>
+        <p class="svc-desc">Remoção de impurezas, higienização e extração com dermocosméticos de alta qualidade para uma pele visivelmente renovada.</p>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="80">
+        <span class="service-num">02</span>
+        <div class="svc-icon"><i class="bi bi-clipboard2-pulse"></i></div>
+        <h3 class="svc-title">Consulta de Skincare</h3>
+        <p class="svc-desc">Avaliação completa da sua rotina com recomendação personalizada de produtos e protocolos para o seu tipo de pele.</p>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="160">
+        <span class="service-num">03</span>
+        <div class="svc-icon"><i class="bi bi-clipboard2-check"></i></div>
+        <h3 class="svc-title">Plano de Tratamento</h3>
+        <p class="svc-desc">Protocolos profissionais focados em renovação celular, hidratação profunda e controle de oleosidade e acne.</p>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="240">
+        <span class="service-num">04</span>
+        <div class="svc-icon"><i class="bi bi-flask"></i></div>
+        <h3 class="svc-title">Dermocosméticos</h3>
+        <p class="svc-desc">Indicação e orientação de dermocosméticos com respaldo científico e farmacêutico para cada tipo e necessidade de pele.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM FEED -->
+<section class="section-feed" id="galeria">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <p class="section-label">@amandasarmento.esteta</p>
+      <h2 class="section-title">Inspirações &amp; Resultados</h2>
+      <p>Acompanhe o dia a dia dos tratamentos e dicas de cuidados com a pele.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="feed-grid">
+
+      <!-- POST 1 -->
+      <div class="post-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="post-header">
+          <div class="post-avatar-wrap">
+            <div class="post-avatar-placeholder">A</div>
+          </div>
+          <div class="post-meta">
+            <div class="post-username">amandasarmento.esteta</div>
+            <div class="post-location">Vitória, ES</div>
+          </div>
+          <span class="post-more"><i class="bi bi-three-dots"></i></span>
+        </div>
+        <div class="post-img-wrap" onclick="openModal(0)">
+          <img src="assets/img/post-limpeza-peeling.jpg" alt="Antes e depois — Limpeza de pele + Peeling Coreano">
+          <div class="post-img-overlay">
+            <span class="pio-stat"><i class="bi bi-heart-fill"></i> 187</span>
+            <span class="pio-stat"><i class="bi bi-chat-fill"></i> 19</span>
+          </div>
+        </div>
+        <div class="post-actions">
+          <button class="post-btn" onclick="toggleLike(this)" title="Curtir"><i class="bi bi-heart"></i></button>
+          <button class="post-btn" onclick="openModal(0)" title="Comentar"><i class="bi bi-chat"></i></button>
+          <button class="post-btn post-btn-share" title="Compartilhar"><i class="bi bi-send"></i></button>
+        </div>
+        <div class="post-body">
+          <div class="post-likes">187 curtidas</div>
+          <div class="post-caption">
+            <strong>amandasarmento.esteta</strong>
+            Antes e depois ✨ Limpeza de pele profunda + Peeling Coreano! Veja a diferença nos poros da região nasal — pele renovada, limpa e muito mais uniforme 🌿
+            <br><span class="hashtag">#limpezadepele #peelingcoreano #antesedepois #poresminimizer #pelesaudável #vitóriaes</span>
+          </div>
+          <button class="post-view-comments" onclick="openModal(0)">Ver todos os 19 comentários</button>
+          <div class="post-comments">
+            <div class="post-comment"><strong>cah.rosa</strong> Que resultado incrível! Os poros sumiu 😱 <i class="bi bi-heart comment-heart" onclick="toggleCommentLike(this)"></i></div>
+            <div class="post-comment"><strong>mari.skin</strong> Preciso desse tratamento urgente! 🙌 <i class="bi bi-heart comment-heart" onclick="toggleCommentLike(this)"></i></div>
+          </div>
+          <div class="post-time">há 2 dias</div>
+        </div>
+        <div class="post-add-comment">
+          <input type="text" placeholder="Adicione um comentário...">
+          <button type="button">Publicar</button>
+        </div>
+      </div>
+
+      <!-- POST 2 -->
+      <div class="post-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="post-header">
+          <div class="post-avatar-wrap">
+            <div class="post-avatar-placeholder">A</div>
+          </div>
+          <div class="post-meta">
+            <div class="post-username">amandasarmento.esteta</div>
+            <div class="post-location">Studio Amanda Sarmento · Vitória, ES</div>
+          </div>
+          <span class="post-more"><i class="bi bi-three-dots"></i></span>
+        </div>
+        <div class="post-img-wrap" onclick="openModal(1)">
+          <img src="assets/img/post-limpeza-peeling-2.jpg" alt="Antes e depois — Limpeza de pele + Peeling Coreano">
+          <div class="post-img-overlay">
+            <span class="pio-stat"><i class="bi bi-heart-fill"></i> 241</span>
+            <span class="pio-stat"><i class="bi bi-chat-fill"></i> 27</span>
+          </div>
+        </div>
+        <div class="post-actions">
+          <button class="post-btn" onclick="toggleLike(this)" title="Curtir"><i class="bi bi-heart"></i></button>
+          <button class="post-btn" onclick="openModal(1)" title="Comentar"><i class="bi bi-chat"></i></button>
+          <button class="post-btn post-btn-share" title="Compartilhar"><i class="bi bi-send"></i></button>
+        </div>
+        <div class="post-body">
+          <div class="post-likes">241 curtidas</div>
+          <div class="post-caption">
+            <strong>amandasarmento.esteta</strong>
+            Resultado real de cliente real 💕 Limpeza de pele profunda + Peeling Coreano — pele muito mais iluminada, poros refinados e textura uniforme em uma única sessão! ✨
+            <br><span class="hashtag">#peelingcoreano #limpezaprofunda #antesedepois #skincareroutine #esteticafacial #farmacêutica</span>
+          </div>
+          <button class="post-view-comments" onclick="openModal(1)">Ver todos os 27 comentários</button>
+          <div class="post-comments">
+            <div class="post-comment"><strong>patty.pele</strong> Fiz na semana passada e amei demais! 💕 <i class="bi bi-heart comment-heart" onclick="toggleCommentLike(this)"></i></div>
+            <div class="post-comment"><strong>lu.vita</strong> Já agendei o meu! 🔥 <i class="bi bi-heart comment-heart" onclick="toggleCommentLike(this)"></i></div>
+          </div>
+          <div class="post-time">há 4 dias</div>
+        </div>
+        <div class="post-add-comment">
+          <input type="text" placeholder="Adicione um comentário...">
+          <button type="button">Publicar</button>
+        </div>
+      </div>
+
+      <!-- POST 3 -->
+      <div class="post-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="post-header">
+          <div class="post-avatar-wrap">
+            <div class="post-avatar-placeholder">A</div>
+          </div>
+          <div class="post-meta">
+            <div class="post-username">amandasarmento.esteta</div>
+            <div class="post-location">Studio Amanda Sarmento · Vitória, ES</div>
+          </div>
+          <span class="post-more"><i class="bi bi-three-dots"></i></span>
+        </div>
+        <div class="post-img-wrap" onclick="openModal(2)">
+          <img src="assets/img/post-limpeza-peeling-3.jpg" alt="Antes e depois — Limpeza de pele + Peeling Coreano">
+          <div class="post-img-overlay">
+            <span class="pio-stat"><i class="bi bi-heart-fill"></i> 163</span>
+            <span class="pio-stat"><i class="bi bi-chat-fill"></i> 14</span>
+          </div>
+        </div>
+        <div class="post-actions">
+          <button class="post-btn" onclick="toggleLike(this)" title="Curtir"><i class="bi bi-heart"></i></button>
+          <button class="post-btn" onclick="openModal(2)" title="Comentar"><i class="bi bi-chat"></i></button>
+          <button class="post-btn post-btn-share" title="Compartilhar"><i class="bi bi-send"></i></button>
+        </div>
+        <div class="post-body">
+          <div class="post-likes">163 curtidas</div>
+          <div class="post-caption">
+            <strong>amandasarmento.esteta</strong>
+            Transformação na região das bochechas 🌸 Limpeza de pele + Peeling Coreano — pele com textura suavizada, luminosidade de volta e aspecto muito mais saudável! Vem cuidar de você também 💆‍♀️
+            <br><span class="hashtag">#limpezadepele #peelingcoreano #skincare #pelesaudável #luminosidade #esteticista</span>
+          </div>
+          <button class="post-view-comments" onclick="openModal(2)">Ver todos os 14 comentários</button>
+          <div class="post-comments">
+            <div class="post-comment"><strong>gabi.glow</strong> Minha pele te agradece, Amanda! ✨ <i class="bi bi-heart comment-heart" onclick="toggleCommentLike(this)"></i></div>
+            <div class="post-comment"><strong>nanda.vita</strong> Que diferença no brilho da pele! 😍 <i class="bi bi-heart comment-heart" onclick="toggleCommentLike(this)"></i></div>
+          </div>
+          <div class="post-time">há 1 semana</div>
+        </div>
+        <div class="post-add-comment">
+          <input type="text" placeholder="Adicione um comentário...">
+          <button type="button">Publicar</button>
+        </div>
+      </div>
+
+    </div><!-- /feed-grid -->
+
+    <div class="feed-cta" data-aos="fade-up">
+      <a href="https://www.instagram.com/amandasarmento.esteta/" target="_blank" rel="noopener" class="btn-insta">
+        <i class="bi bi-instagram"></i> Seguir no Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- POST MODAL -->
+<div class="post-modal-backdrop" id="postModal" onclick="closeModalOutside(event)">
+  <div class="post-modal" id="postModalInner">
+    <img id="modalImg" src="" alt="" class="modal-img">
+    <div class="modal-right">
+      <div class="modal-header">
+        <div class="post-avatar-wrap" style="width:34px;height:34px;min-width:34px">
+          <div class="post-avatar-placeholder" style="font-size:.85rem">A</div>
+        </div>
+        <div class="post-meta">
+          <div class="post-username">amandasarmento.esteta</div>
+          <div id="modalLocation" class="post-location"></div>
+        </div>
+        <button class="modal-close" onclick="closeModal()"><i class="bi bi-x-lg"></i></button>
+      </div>
+      <div class="modal-comments" id="modalComments"></div>
+      <div class="modal-actions">
+        <div style="display:flex;gap:.5rem">
+          <button class="post-btn" onclick="toggleLike(this)"><i class="bi bi-heart"></i></button>
+          <button class="post-btn"><i class="bi bi-chat"></i></button>
+          <button class="post-btn" style="margin-left:auto"><i class="bi bi-send"></i></button>
+        </div>
+        <div class="modal-likes" id="modalLikes"></div>
+      </div>
+      <div class="modal-add">
+        <input type="text" placeholder="Adicione um comentário...">
+        <button type="button" style="background:none;border:none;font-size:.78rem;font-weight:600;color:var(--primary);cursor:pointer">Publicar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="section-testimonials" id="depoimentos">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <p class="section-label">Depoimentos</p>
+      <h2 class="section-title">O Que Dizem Sobre Mim</h2>
+      <p>A satisfação das minhas clientes é o meu maior resultado.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"A Amanda transformou minha pele! Nunca tive uma limpeza tão completa e cuidadosa. Ela entende realmente de dermocosméticos e passa muita confiança."</p>
+        <div class="testi-author">
+          <div class="testi-av">M</div>
+          <div><div class="testi-name">Mariana S.</div><div class="testi-svc">Limpeza de Pele Profunda</div></div>
+        </div>
+      </div>
+      <div class="testi-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"Minha rotina de skincare mudou completamente depois da consulta. Ela identificou exatamente o que minha pele precisava. Profissionalismo incrível!"</p>
+        <div class="testi-author">
+          <div class="testi-av">J</div>
+          <div><div class="testi-name">Juliana R.</div><div class="testi-svc">Consulta de Skincare</div></div>
+        </div>
+      </div>
+      <div class="testi-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"O plano de tratamento foi um divisor de águas. Em poucas semanas minha pele estava muito mais equilibrada. Super recomendo para quem quer resultado real!"</p>
+        <div class="testi-author">
+          <div class="testi-av">C</div>
+          <div><div class="testi-name">Carla M.</div><div class="testi-svc">Plano de Tratamento</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contato">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <p class="section-label">Contato</p>
+      <h2 class="section-title">Vamos Conversar?</h2>
+      <p>Agende sua consulta ou tire suas dúvidas. Responderei em até 24h.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="contact-left">
+        <h3 class="contact-left-title">Fale Comigo</h3>
+        <p class="contact-left-sub">Será um prazer cuidar de você! Entre em contato pelo canal que preferir.</p>
+        <ul class="cinfo-list">
+          <li class="cinfo-item">
+            <div class="cinfo-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div><div class="cinfo-lbl">Localização</div><span class="cinfo-val">Vitória — ES</span></div>
+          </li>
+          <li class="cinfo-item">
+            <div class="cinfo-icon"><i class="bi bi-telephone-fill"></i></div>
+            <div><div class="cinfo-lbl">WhatsApp / Telefone</div><a href="tel:+5577999999999" class="cinfo-val">+55 (77) 99999-9999</a></div>
+          </li>
+          <li class="cinfo-item">
+            <div class="cinfo-icon"><i class="bi bi-envelope-fill"></i></div>
+            <div><div class="cinfo-lbl">E-mail</div><a href="mailto:contato@amandasarmento.com.br" class="cinfo-val">contato@amandasarmento.com.br</a></div>
+          </li>
+        </ul>
+        <div style="margin-top:2.2rem">
+          <a href="https://agenda-amanda.netlify.app/" target="_blank" rel="noopener" class="btn-gold">
+            <i class="bi bi-calendar-check-fill"></i> Agendar Online
+          </a>
+        </div>
+        <div class="csocial">
+          <a href="https://www.instagram.com/amandasarmento.esteta/" target="_blank" rel="noopener" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://wa.me/5577999999999" target="_blank" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="contact-right">
+        <h3>Envie uma Mensagem</h3>
+        <p>Preencha o formulário e entrarei em contato em breve.</p>
+        <form id="contactForm" novalidate>
+          <div class="frow">
+            <div class="fgroup">
+              <label class="flabel" for="inputName">Nome Completo *</label>
+              <input type="text" class="finput" id="inputName" placeholder="Seu nome" required>
+            </div>
+            <div class="fgroup">
+              <label class="flabel" for="inputEmail">E-mail *</label>
+              <input type="email" class="finput" id="inputEmail" placeholder="nome@email.com" required>
+            </div>
+          </div>
+          <div class="fgroup">
+            <label class="flabel" for="inputPhone">WhatsApp</label>
+            <input type="tel" class="finput" id="inputPhone" placeholder="(00) 90000-0000">
+          </div>
+          <div class="fgroup">
+            <label class="flabel" for="inputMessage">Mensagem *</label>
+            <textarea class="finput" id="inputMessage" placeholder="Como posso ajudar você?" required></textarea>
+          </div>
+          <div style="text-align:right">
+            <button type="submit" class="btn-rose">Enviar Mensagem <i class="bi bi-send"></i></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <span class="footer-brand">Amanda Sarmento</span>
+        <p class="footer-desc">Farmacêutica e esteticista dedicada a transformar a saúde e a beleza da sua pele com ciência, carinho e personalização.</p>
+        <div class="footer-soc">
+          <a href="https://www.instagram.com/amandasarmento.esteta/" target="_blank" rel="noopener" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://wa.me/5577999999999" target="_blank" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-head">Navegação</p>
+        <ul class="footer-links">
+          <li><a href="#home">Início</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-head">Serviços</p>
+        <ul class="footer-links">
+          <li><a href="#servicos">Limpeza de Pele</a></li>
+          <li><a href="#servicos">Consulta de Skincare</a></li>
+          <li><a href="#servicos">Plano de Tratamento</a></li>
+          <li><a href="#servicos">Dermocosméticos</a></li>
+          <li><a href="https://agenda-amanda.netlify.app/" target="_blank">Agendamento Online</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Amanda Sarmento · Farmacêutica &amp; Esteticista</span>
+      <span>Vitória — ES · Feito com <i class="bi bi-heart-fill" style="color:var(--primary-light)"></i></span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5577999999999" target="_blank" rel="noopener" class="wa-btn" title="Fale no WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 680, once: true, offset: 55 });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Navbar scroll effect
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 55));
+
+  // Mobile menu
+  function openMobile()  { document.getElementById('mobileMenu').classList.add('open');    document.body.style.overflow='hidden'; }
+  function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow=''; }
+
+  // ── Instagram Feed ──
+  const posts = [
+    {
+      img: 'assets/img/post-limpeza-peeling.jpg',
+      location: 'Vitória, ES',
+      likes: 187,
+      caption: '<strong>amandasarmento.esteta</strong> Antes e depois ✨ Limpeza de pele profunda + Peeling Coreano! Veja a diferença nos poros da região nasal — pele renovada, limpa e muito mais uniforme 🌿 <span style="color:var(--primary-dark)">#limpezadepele #peelingcoreano #antesedepois #poresminimizer #pelesaudável #vitóriaes</span>',
+      comments: [
+        { user: 'cah.rosa',    av: 'C', text: 'Que resultado incrível! Os poros sumiu 😱',        time: 'há 1 dia' },
+        { user: 'mari.skin',   av: 'M', text: 'Preciso desse tratamento urgente! 🙌',             time: 'há 1 dia' },
+        { user: 'ju.beleza',   av: 'J', text: 'Amei o resultado na região do nariz! 💕',          time: 'há 2 dias' },
+        { user: 'carol_pele',  av: 'C', text: 'Quantas sessões foram necessárias?',               time: 'há 2 dias' },
+        { user: 'tati.skin',   av: 'T', text: 'Já agendei o meu! 🔥',                             time: 'há 2 dias' },
+        { user: 'bela.farma',  av: 'B', text: 'Melhor esteticista de Vitória! ❤️',                time: 'há 2 dias' },
+      ]
+    },
+    {
+      img: 'assets/img/post-limpeza-peeling-2.jpg',
+      location: 'Studio Amanda Sarmento · Vitória, ES',
+      likes: 241,
+      caption: '<strong>amandasarmento.esteta</strong> Resultado real de cliente real 💕 Limpeza de pele profunda + Peeling Coreano — pele muito mais iluminada, poros refinados e textura uniforme em uma única sessão! ✨ <span style="color:var(--primary-dark)">#peelingcoreano #limpezaprofunda #antesedepois #skincareroutine #esteticafacial #farmacêutica</span>',
+      comments: [
+        { user: 'patty.pele',  av: 'P', text: 'Fiz na semana passada e amei demais! 💕',         time: 'há 3 dias' },
+        { user: 'lu.vita',     av: 'L', text: 'Já agendei o meu! 🔥',                             time: 'há 3 dias' },
+        { user: 'nanda.vita',  av: 'N', text: 'Essa luminosidade!! 😍',                           time: 'há 4 dias' },
+        { user: 'gabi.glow',   av: 'G', text: 'Amanda é demais! Resultado perfeito 👏',           time: 'há 4 dias' },
+        { user: 'sara.skin',   av: 'S', text: 'Uma sessão só e esse resultado?! Incrível!',       time: 'há 4 dias' },
+        { user: 'deb.esteta',  av: 'D', text: 'Quero muito fazer esse procedimento!',             time: 'há 5 dias' },
+      ]
+    },
+    {
+      img: 'assets/img/post-limpeza-peeling-3.jpg',
+      location: 'Studio Amanda Sarmento · Vitória, ES',
+      likes: 163,
+      caption: '<strong>amandasarmento.esteta</strong> Transformação na região das bochechas 🌸 Limpeza de pele + Peeling Coreano — textura suavizada, luminosidade de volta e aspecto muito mais saudável! Vem cuidar de você também 💆‍♀️ <span style="color:var(--primary-dark)">#limpezadepele #peelingcoreano #skincare #pelesaudável #luminosidade #esteticista</span>',
+      comments: [
+        { user: 'gabi.glow',   av: 'G', text: 'Minha pele te agradece, Amanda! ✨',               time: 'há 5 dias' },
+        { user: 'nanda.vita',  av: 'N', text: 'Que diferença no brilho da pele! 😍',              time: 'há 6 dias' },
+        { user: 'mari.skin',   av: 'M', text: 'Textura da pele impecável depois! 😱',             time: 'há 6 dias' },
+        { user: 'carol_pele',  av: 'C', text: 'Vou agendar ainda essa semana! 🙌',                time: 'há 7 dias' },
+      ]
+    }
+  ];
+
+  function openModal(idx) {
+    const p = posts[idx];
+    document.getElementById('modalImg').src = p.img;
+    document.getElementById('modalLocation').textContent = p.location;
+    document.getElementById('modalLikes').textContent = p.likes + ' curtidas';
+    const cc = document.getElementById('modalComments');
+    cc.innerHTML = '<div class="modal-caption">' + p.caption + '</div>';
+    p.comments.forEach(c => {
+      cc.innerHTML += `
+        <div class="modal-comment-item">
+          <div class="modal-comment-av">${c.av}</div>
+          <div>
+            <div class="modal-comment-text"><strong>${c.user}</strong>${c.text}</div>
+            <div class="modal-comment-time">${c.time}</div>
+          </div>
+        </div>`;
+    });
+    document.getElementById('postModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('postModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalOutside(e) {
+    if (e.target === document.getElementById('postModal')) closeModal();
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  function toggleLike(btn) {
+    const ico = btn.querySelector('i');
+    const liked = ico.classList.contains('bi-heart-fill');
+    ico.classList.toggle('bi-heart', liked);
+    ico.classList.toggle('bi-heart-fill', !liked);
+    btn.style.color = liked ? '' : '#e0334c';
+    // update like count in card
+    const body = btn.closest('.post-body, .modal-actions');
+    if (body) {
+      const likesEl = body.querySelector('.post-likes, .modal-likes');
+      if (likesEl) {
+        const n = parseInt(likesEl.textContent);
+        likesEl.textContent = (liked ? n - 1 : n + 1) + ' curtidas';
+      }
+    }
+  }
+  function toggleCommentLike(ico) {
+    ico.classList.toggle('bi-heart');
+    ico.classList.toggle('bi-heart-fill');
+    ico.style.color = ico.classList.contains('bi-heart-fill') ? '#e0334c' : '';
+  }
+
+  // Form
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name    = document.getElementById('inputName').value.trim();
+    const email   = document.getElementById('inputEmail').value.trim();
+    const message = document.getElementById('inputMessage').value.trim();
+    if (!name || !email || !message) {
+      alert('Por favor, preencha todos os campos obrigatórios (*).');
+      return;
+    }
+    alert('Mensagem enviada com sucesso! Entrarei em contato em breve. 💕');
+    this.reset();
+  });
+</script>
 </body>
 </html>
