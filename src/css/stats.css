@@ -11,4 +11,4 @@
   background: var(--grad-primary); -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; background-clip: text;
 }
-.stat-lbl { font-size: 0.76rem; color: var(--text-light); margin-top: 0.2rem; }
+.stat-lbl { font-size: 0.76rem; color: var(--text-medium); margin-top: 0.2rem; }

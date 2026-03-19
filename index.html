@@ -258,7 +258,7 @@
           <span class="post-more"><i class="bi bi-three-dots"></i></span>
         </div>
         <div class="post-img-wrap" onclick="openModal(0)">
-          <img src="assets/img/post-limpeza-peeling.jpg" alt="Antes e depois — Limpeza de pele + Peeling Coreano">
+          <img src="assets/img/post-limpeza-peeling.jpg" alt="Resultado 1: antes e depois de limpeza de pele com peeling coreano" width="1080" height="1080" loading="lazy">
           <div class="post-img-overlay">
             <span class="pio-stat"><i class="bi bi-heart-fill"></i> 187</span>
             <span class="pio-stat"><i class="bi bi-chat-fill"></i> 19</span>
@@ -302,7 +302,7 @@
           <span class="post-more"><i class="bi bi-three-dots"></i></span>
         </div>
         <div class="post-img-wrap" onclick="openModal(1)">
-          <img src="assets/img/post-limpeza-peeling-2.jpg" alt="Antes e depois — Limpeza de pele + Peeling Coreano">
+          <img src="assets/img/post-limpeza-peeling-2.jpg" alt="Resultado 2: antes e depois de limpeza de pele com peeling coreano" width="1080" height="1080" loading="lazy">
           <div class="post-img-overlay">
             <span class="pio-stat"><i class="bi bi-heart-fill"></i> 241</span>
             <span class="pio-stat"><i class="bi bi-chat-fill"></i> 27</span>
@@ -346,7 +346,7 @@
           <span class="post-more"><i class="bi bi-three-dots"></i></span>
         </div>
         <div class="post-img-wrap" onclick="openModal(2)">
-          <img src="assets/img/post-limpeza-peeling-3.jpg" alt="Antes e depois — Limpeza de pele + Peeling Coreano">
+          <img src="assets/img/post-limpeza-peeling-3.jpg" alt="Resultado 3: antes e depois de limpeza de pele com peeling coreano" width="1080" height="1080" loading="lazy">
           <div class="post-img-overlay">
             <span class="pio-stat"><i class="bi bi-heart-fill"></i> 163</span>
             <span class="pio-stat"><i class="bi bi-chat-fill"></i> 14</span>
@@ -400,20 +400,20 @@
           <div class="post-username">amandasarmento.esteta</div>
           <div id="modalLocation" class="post-location"></div>
         </div>
-        <button class="modal-close" onclick="closeModal()"><i class="bi bi-x-lg"></i></button>
+        <button class="modal-close" onclick="closeModal()" aria-label="Fechar visualização"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
       </div>
       <div class="modal-comments" id="modalComments"></div>
       <div class="modal-actions">
         <div style="display:flex;gap:.5rem">
-          <button class="post-btn" onclick="toggleLike(this)"><i class="bi bi-heart"></i></button>
-          <button class="post-btn"><i class="bi bi-chat"></i></button>
-          <button class="post-btn" style="margin-left:auto"><i class="bi bi-send"></i></button>
+          <button class="post-btn" onclick="toggleLike(this)" aria-label="Curtir publicação" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
+          <button class="post-btn" aria-label="Comentar"><i class="bi bi-chat" aria-hidden="true"></i></button>
+          <button class="post-btn" style="margin-left:auto" aria-label="Compartilhar publicação"><i class="bi bi-send" aria-hidden="true"></i></button>
         </div>
         <div class="modal-likes" id="modalLikes"></div>
       </div>
       <div class="modal-add">
         <input type="text" placeholder="Adicione um comentário...">
-        <button type="button" style="background:none;border:none;font-size:.78rem;font-weight:600;color:var(--primary);cursor:pointer">Publicar</button>
+        <button type="button" aria-label="Publicar comentário" style="background:none;border:none;font-size:.78rem;font-weight:600;color:var(--primary);cursor:pointer">Publicar</button>
       </div>
     </div>
   </div>
@@ -490,8 +490,8 @@
           </a>
         </div>
         <div class="csocial">
-          <a href="https://www.instagram.com/amandasarmento.esteta/" target="_blank" rel="noopener" title="Instagram"><i class="bi bi-instagram"></i></a>
-          <a href="https://wa.me/5527995085534" target="_blank" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          <a href="https://www.instagram.com/amandasarmento.esteta/" target="_blank" rel="noopener" title="Instagram" aria-label="Seguir Amanda Sarmento no Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+          <a href="https://wa.me/5527995085534" target="_blank" title="WhatsApp" aria-label="Contato pelo WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i></a>
         </div>
       </div>
       <div class="contact-right">
@@ -533,8 +533,8 @@
         <span class="footer-brand">Amanda Sarmento</span>
         <p class="footer-desc">Farmacêutica e esteticista dedicada a transformar a saúde e a beleza da sua pele com ciência, carinho e personalização.</p>
         <div class="footer-soc">
-          <a href="https://www.instagram.com/amandasarmento.esteta/" target="_blank" rel="noopener" title="Instagram"><i class="bi bi-instagram"></i></a>
-          <a href="https://wa.me/5527995085534" target="_blank" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          <a href="https://www.instagram.com/amandasarmento.esteta/" target="_blank" rel="noopener" title="Instagram" aria-label="Seguir Amanda Sarmento no Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+          <a href="https://wa.me/5527995085534" target="_blank" title="WhatsApp" aria-label="Contato pelo WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i></a>
         </div>
       </div>
       <div>
