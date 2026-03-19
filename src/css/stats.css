@@ -1,0 +1,14 @@
+.stats-bar { background: #fff; box-shadow: 0 4px 40px rgba(200,112,122,0.07); padding: 2.2rem 0; }
+.stats-grid { display: grid; grid-template-columns: repeat(4,1fr); }
+.stat-item {
+  text-align: center; padding: 1rem 0.5rem;
+  border-right: 1px solid rgba(200,112,122,0.12);
+}
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.6rem; font-weight: 700; line-height: 1;
+  background: var(--grad-primary); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text;
+}
+.stat-lbl { font-size: 0.76rem; color: var(--text-light); margin-top: 0.2rem; }

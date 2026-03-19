@@ -1,0 +1,45 @@
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  background: url('/assets/img/medicine-capsules-global-health-with-geometric-pattern-digital-remix-1.jpg') center/cover no-repeat;
+  background-attachment: fixed; overflow: hidden;
+}
+.hero-overlay { position: absolute; inset: 0; background: var(--grad-hero); }
+.hero-deco {
+  position: absolute; border-radius: 50%; opacity: 0.12;
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+}
+.hero-deco-1 { width: 520px; height: 520px; top: -120px; right: -120px; }
+.hero-deco-2 { width: 280px; height: 280px; bottom: 60px; left: -60px; background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%); }
+.hero-body {
+  position: relative; z-index: 2;
+  text-align: center; max-width: 780px; padding: 2rem 1.5rem;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(255,255,255,0.13); backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.28); color: rgba(255,255,255,0.95);
+  font-size: 0.76rem; font-weight: 500; letter-spacing: 2.5px;
+  text-transform: uppercase; padding: 0.45rem 1.4rem; border-radius: 50px;
+  margin-bottom: 1.5rem;
+}
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.8rem, 9vw, 7.5rem);
+  font-weight: 300; color: #fff; line-height: 0.95;
+  margin-bottom: 1.1rem; letter-spacing: -1px;
+}
+.hero-title strong { display: block; font-weight: 600; }
+.hero-sub {
+  font-size: 1rem; color: rgba(255,255,255,0.86);
+  font-weight: 300; line-height: 1.75; margin-bottom: 2.5rem;
+}
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.hero-scroll {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 2;
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  color: rgba(255,255,255,0.65); font-size: 0.7rem; letter-spacing: 2px;
+  text-transform: uppercase; text-decoration: none;
+}
+.scroll-line { width: 1px; height: 40px; background: rgba(255,255,255,0.45); animation: blink 1.6s ease-in-out infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }

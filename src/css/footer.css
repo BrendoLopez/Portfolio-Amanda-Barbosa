@@ -1,0 +1,17 @@
+.footer { background: var(--text-dark); color: rgba(255,255,255,0.65); padding: 3.5rem 0 2rem; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 1.8rem; }
+.footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 600; color: #fff; display: block; margin-bottom: 0.7rem; }
+.footer-desc { font-size: 0.84rem; line-height: 1.7; margin-bottom: 1.4rem; }
+.footer-soc { display: flex; gap: 0.65rem; }
+.footer-soc a {
+  width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.65); text-decoration: none;
+  display: flex; align-items: center; justify-content: center; font-size: 0.88rem;
+  transition: all .3s;
+}
+.footer-soc a:hover { background: var(--primary); color: #fff; }
+.footer-head { font-size: 0.7rem; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+.footer-links a { font-size: 0.84rem; color: rgba(255,255,255,0.6); text-decoration: none; transition: color .3s; }
+.footer-links a:hover { color: var(--primary-light); }
+.footer-bottom { display: flex; justify-content: space-between; font-size: 0.78rem; flex-wrap: wrap; gap: 0.5rem; }

@@ -1,0 +1,11 @@
+/* ── WHATSAPP FLOAT ── */
+.wa-btn {
+  position: fixed; bottom: 1.8rem; right: 1.8rem; z-index: 998;
+  width: 54px; height: 54px; border-radius: 50%; background: #25D366;
+  color: #fff; font-size: 1.45rem; text-decoration: none;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 24px rgba(37,211,102,0.5);
+  animation: wapulse 2.5s ease-in-out infinite; transition: transform .3s;
+}
+.wa-btn:hover { transform: scale(1.1); color: #fff; animation: none; box-shadow: 0 10px 32px rgba(37,211,102,0.55); }
+@keyframes wapulse { 0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)} 50%{box-shadow:0 6px 24px rgba(37,211,102,0.5),0 0 0 10px rgba(37,211,102,0.13)} }
