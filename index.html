@@ -3,20 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Amanda Sarmento - Farmacêutica e Esteticista especializada em limpeza de pele profunda e dermocosméticos em Vitória-ES">
-  <meta name="keywords" content="farmacêutica, esteticista, limpeza de pele, dermocosméticos, skincare, vitória-es">
+
+  <!-- SEO principal -->
+  <title>Amanda Sarmento • Farmacêutica & Esteticista em Vitória-ES | Limpeza de Pele e Peeling</title>
+  <meta name="description" content="Amanda Sarmento — Farmacêutica e Esteticista em Vitória-ES. Especialista em limpeza de pele profunda, peeling coreano, dermocosméticos e protocolos personalizados de skincare. Agende sua consulta!">
+  <meta name="keywords" content="limpeza de pele vitória es, peeling coreano vitória, esteticista vitória es, farmacêutica esteticista, limpeza de pele profunda, peeling coreano, dermocosméticos, skincare vitória, tratamento facial es, limpeza de pele praia do suá, esteticista praia do suá, protocolo skincare, pele saudável espírito santo">
   <meta name="author" content="Amanda Sarmento">
-  <title>Amanda Sarmento • Farmacêutica & Esteticista</title>
+  <meta name="robots" content="index, follow">
+  <meta name="geo.region" content="BR-ES">
+  <meta name="geo.placename" content="Vitória, Espírito Santo">
+  <link rel="canonical" href="https://amandasarmento.com.br/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://amandasarmento.com.br/">
+  <meta property="og:title" content="Amanda Sarmento • Farmacêutica & Esteticista | Limpeza de Pele e Peeling em Vitória-ES">
+  <meta property="og:description" content="Especialista em limpeza de pele profunda, peeling coreano e dermocosméticos em Vitória-ES. Resultados reais com protocolo personalizado. Agende agora!">
+  <meta property="og:image" content="https://amandasarmento.com.br/assets/img/profile-amanda.jpg">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Amanda Sarmento">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Amanda Sarmento • Farmacêutica & Esteticista em Vitória-ES">
+  <meta name="twitter:description" content="Limpeza de pele profunda, peeling coreano e dermocosméticos em Vitória-ES. Agende sua consulta!">
+  <meta name="twitter:image" content="https://amandasarmento.com.br/assets/img/profile-amanda.jpg">
+
+  <!-- JSON-LD: LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "name": "Amanda Sarmento — Farmacêutica & Esteticista",
+    "image": "https://amandasarmento.com.br/assets/img/profile-amanda.jpg",
+    "url": "https://amandasarmento.com.br",
+    "telephone": "+55-27-99508-5534",
+    "email": "contato@amandasarmento.com.br",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "R. Padre Antônio Ribeiro Pinto",
+      "addressLocality": "Vitória",
+      "addressRegion": "ES",
+      "addressCountry": "BR",
+      "postalCode": "29050-570"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -20.3155,
+      "longitude": -40.3128
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    "sameAs": [
+      "https://www.instagram.com/amandasarmento.esteta/"
+    ],
+    "priceRange": "$$",
+    "description": "Especialista em limpeza de pele profunda, peeling coreano e dermocosméticos em Vitória-ES.",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "100"
+    }
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+<a href="#home" class="skip-link">Pular para o conteúdo principal</a>
 
 <!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-close" onclick="closeMobile()"><i class="bi bi-x-lg"></i></button>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+  <button class="mobile-close" onclick="closeMobile()" aria-label="Fechar menu"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
   <a href="#home"        onclick="closeMobile()">Início</a>
   <a href="#sobre"       onclick="closeMobile()">Sobre</a>
   <a href="#servicos"    onclick="closeMobile()">Serviços</a>
@@ -27,13 +91,13 @@
 </div>
 
 <!-- NAVBAR -->
-<nav class="navbar" id="navbar">
+<nav class="navbar" id="navbar" role="navigation" aria-label="Navegação principal">
   <div class="container">
-    <a class="nav-brand" href="#home">
-      <img src="assets/img/logo-farmacia-removebg-preview.png" alt="Amanda Sarmento" class="nav-logo">
+    <a class="nav-brand" href="#home" aria-label="Amanda Sarmento — página inicial">
+      <img src="assets/img/logo-farmacia-removebg-preview.png" alt="Logo Amanda Sarmento — Farmacêutica e Esteticista" class="nav-logo" width="40" height="40">
       <span class="nav-name">Amanda Sarmento</span>
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links" role="list">
       <li><a href="#home">Início</a></li>
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="#servicos">Serviços</a></li>
@@ -41,35 +105,35 @@
       <li><a href="#depoimentos">Depoimentos</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul>
-    <a href="https://agenda-amanda.netlify.app/" target="_blank" class="nav-cta">Agendar</a>
-    <div class="hamburger" onclick="openMobile()">
-      <span></span><span></span><span></span>
-    </div>
+    <a href="https://agenda-amanda.netlify.app/" target="_blank" rel="noopener" class="nav-cta" aria-label="Agendar consulta online">Agendar</a>
+    <button class="hamburger" onclick="openMobile()" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobileMenu">
+      <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+    </button>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-overlay"></div>
-  <div class="hero-deco hero-deco-1"></div>
-  <div class="hero-deco hero-deco-2"></div>
+<section class="hero" id="home" aria-label="Apresentação">
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-deco hero-deco-1" aria-hidden="true"></div>
+  <div class="hero-deco hero-deco-2" aria-hidden="true"></div>
   <div class="hero-body">
-    <div class="hero-tag"><i class="bi bi-stars"></i> Farmacêutica &amp; Esteticista</div>
+    <div class="hero-tag"><i class="bi bi-stars" aria-hidden="true"></i> Farmacêutica &amp; Esteticista</div>
     <h1 class="hero-title">Amanda<strong>Sarmento</strong></h1>
     <p class="hero-sub">
-      Especializada em limpeza de pele profunda, dermocosméticos<br>
+      Especializada em limpeza de pele profunda, peeling coreano, dermocosméticos<br>
       e protocolos personalizados de skincare — Vitória, ES.
     </p>
     <div class="hero-btns">
-      <a href="https://agenda-amanda.netlify.app/" target="_blank" rel="noopener" class="btn-gold">
-        <i class="bi bi-calendar-check-fill"></i> Agendar Consulta
+      <a href="https://agenda-amanda.netlify.app/" target="_blank" rel="noopener" class="btn-gold" aria-label="Agendar consulta online com Amanda Sarmento">
+        <i class="bi bi-calendar-check-fill" aria-hidden="true"></i> Agendar Consulta
       </a>
-      <a href="#servicos" class="btn-outline-white">
-        Conhecer Serviços <i class="bi bi-arrow-down"></i>
+      <a href="#servicos" class="btn-outline-white" aria-label="Ver serviços oferecidos">
+        Conhecer Serviços <i class="bi bi-arrow-down" aria-hidden="true"></i>
       </a>
     </div>
   </div>
-  <a href="#sobre" class="hero-scroll">scroll<div class="scroll-line"></div></a>
+  <a href="#sobre" class="hero-scroll" aria-label="Rolar para seção Sobre">scroll<div class="scroll-line" aria-hidden="true"></div></a>
 </section>
 
 <!-- STATS -->
@@ -124,7 +188,7 @@
           <li><div class="check-icon"><i class="bi bi-check"></i></div><span>Orientação especializada em dermocosméticos e skincare</span></li>
           <li><div class="check-icon"><i class="bi bi-check"></i></div><span>Atendimento humanizado com foco em resultados naturais</span></li>
         </ul>
-        <p class="location-note"><i class="bi bi-geo-alt-fill"></i>Atendimento em Vitória — ES</p>
+        <p class="location-note"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i>Atendimento em Praia do Suá — Vitória, ES</p>
         <a href="#contato" class="btn-rose">Falar Comigo <i class="bi bi-arrow-right"></i></a>
       </div>
     </div>
@@ -201,9 +265,9 @@
           </div>
         </div>
         <div class="post-actions">
-          <button class="post-btn" onclick="toggleLike(this)" title="Curtir"><i class="bi bi-heart"></i></button>
-          <button class="post-btn" onclick="openModal(0)" title="Comentar"><i class="bi bi-chat"></i></button>
-          <button class="post-btn post-btn-share" title="Compartilhar"><i class="bi bi-send"></i></button>
+          <button class="post-btn" onclick="toggleLike(this)" aria-label="Curtir publicação" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
+          <button class="post-btn" onclick="openModal(0)" aria-label="Ver comentários"><i class="bi bi-chat" aria-hidden="true"></i></button>
+          <button class="post-btn post-btn-share" aria-label="Compartilhar publicação"><i class="bi bi-send" aria-hidden="true"></i></button>
         </div>
         <div class="post-body">
           <div class="post-likes">187 curtidas</div>
@@ -245,9 +309,9 @@
           </div>
         </div>
         <div class="post-actions">
-          <button class="post-btn" onclick="toggleLike(this)" title="Curtir"><i class="bi bi-heart"></i></button>
-          <button class="post-btn" onclick="openModal(1)" title="Comentar"><i class="bi bi-chat"></i></button>
-          <button class="post-btn post-btn-share" title="Compartilhar"><i class="bi bi-send"></i></button>
+          <button class="post-btn" onclick="toggleLike(this)" aria-label="Curtir publicação" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
+          <button class="post-btn" onclick="openModal(1)" aria-label="Ver comentários"><i class="bi bi-chat" aria-hidden="true"></i></button>
+          <button class="post-btn post-btn-share" aria-label="Compartilhar publicação"><i class="bi bi-send" aria-hidden="true"></i></button>
         </div>
         <div class="post-body">
           <div class="post-likes">241 curtidas</div>
@@ -289,9 +353,9 @@
           </div>
         </div>
         <div class="post-actions">
-          <button class="post-btn" onclick="toggleLike(this)" title="Curtir"><i class="bi bi-heart"></i></button>
-          <button class="post-btn" onclick="openModal(2)" title="Comentar"><i class="bi bi-chat"></i></button>
-          <button class="post-btn post-btn-share" title="Compartilhar"><i class="bi bi-send"></i></button>
+          <button class="post-btn" onclick="toggleLike(this)" aria-label="Curtir publicação" aria-pressed="false"><i class="bi bi-heart" aria-hidden="true"></i></button>
+          <button class="post-btn" onclick="openModal(2)" aria-label="Ver comentários"><i class="bi bi-chat" aria-hidden="true"></i></button>
+          <button class="post-btn post-btn-share" aria-label="Compartilhar publicação"><i class="bi bi-send" aria-hidden="true"></i></button>
         </div>
         <div class="post-body">
           <div class="post-likes">163 curtidas</div>
@@ -408,12 +472,12 @@
         <p class="contact-left-sub">Será um prazer cuidar de você! Entre em contato pelo canal que preferir.</p>
         <ul class="cinfo-list">
           <li class="cinfo-item">
-            <div class="cinfo-icon"><i class="bi bi-geo-alt-fill"></i></div>
-            <div><div class="cinfo-lbl">Localização</div><span class="cinfo-val">Vitória — ES</span></div>
+            <div class="cinfo-icon"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i></div>
+            <div><div class="cinfo-lbl">Localização</div><span class="cinfo-val">R. Padre Antônio Ribeiro Pinto — Praia do Suá, Vitória, ES</span></div>
           </li>
           <li class="cinfo-item">
-            <div class="cinfo-icon"><i class="bi bi-telephone-fill"></i></div>
-            <div><div class="cinfo-lbl">WhatsApp / Telefone</div><a href="tel:+5577999999999" class="cinfo-val">+55 (77) 99999-9999</a></div>
+            <div class="cinfo-icon"><i class="bi bi-telephone-fill" aria-hidden="true"></i></div>
+            <div><div class="cinfo-lbl">WhatsApp / Telefone</div><a href="https://wa.me/5527995085534" target="_blank" rel="noopener" class="cinfo-val" aria-label="Falar com Amanda Sarmento pelo WhatsApp">+55 (27) 99508-5534</a></div>
           </li>
           <li class="cinfo-item">
             <div class="cinfo-icon"><i class="bi bi-envelope-fill"></i></div>
@@ -427,7 +491,7 @@
         </div>
         <div class="csocial">
           <a href="https://www.instagram.com/amandasarmento.esteta/" target="_blank" rel="noopener" title="Instagram"><i class="bi bi-instagram"></i></a>
-          <a href="https://wa.me/5577999999999" target="_blank" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          <a href="https://wa.me/5527995085534" target="_blank" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
         </div>
       </div>
       <div class="contact-right">
@@ -470,7 +534,7 @@
         <p class="footer-desc">Farmacêutica e esteticista dedicada a transformar a saúde e a beleza da sua pele com ciência, carinho e personalização.</p>
         <div class="footer-soc">
           <a href="https://www.instagram.com/amandasarmento.esteta/" target="_blank" rel="noopener" title="Instagram"><i class="bi bi-instagram"></i></a>
-          <a href="https://wa.me/5577999999999" target="_blank" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          <a href="https://wa.me/5527995085534" target="_blank" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
         </div>
       </div>
       <div>
@@ -497,14 +561,14 @@
     </div>
     <div class="footer-bottom">
       <span>© <span id="year"></span> Amanda Sarmento · Farmacêutica &amp; Esteticista</span>
-      <span>Vitória — ES · Feito com <i class="bi bi-heart-fill" style="color:var(--primary-light)"></i></span>
+      <span>Praia do Suá, Vitória — ES · Feito com <i class="bi bi-heart-fill" style="color:var(--primary-light)" aria-hidden="true"></i></span>
     </div>
   </div>
 </footer>
 
 <!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/5577999999999" target="_blank" rel="noopener" class="wa-btn" title="Fale no WhatsApp">
-  <i class="bi bi-whatsapp"></i>
+<a href="https://wa.me/5527995085534" target="_blank" rel="noopener" class="wa-btn" aria-label="Fale com Amanda Sarmento pelo WhatsApp">
+  <i class="bi bi-whatsapp" aria-hidden="true"></i>
 </a>
 
 <script type="module" src="/src/main.js"></script>

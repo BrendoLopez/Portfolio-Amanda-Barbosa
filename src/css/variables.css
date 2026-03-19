@@ -1,5 +1,22 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Acessibilidade — skip link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--primary-dark, #A05060);
+  color: #fff;
+  padding: .5rem 1rem;
+  border-radius: 0 0 6px 6px;
+  font-size: .85rem;
+  font-weight: 600;
+  z-index: 9999;
+  transition: top .2s;
+  text-decoration: none;
+}
+.skip-link:focus { top: 0; }
+
 :root {
   --primary:        #C8707A;
   --primary-light:  #E8B4B8;
