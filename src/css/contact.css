@@ -45,3 +45,22 @@
 .finput:focus { border-color: var(--primary); background: #fff; box-shadow: 0 0 0 3px rgba(200,112,122,0.1); }
 .finput::placeholder { color: rgba(107,64,80,0.38); }
 textarea.finput { resize: vertical; min-height: 110px; }
+
+/* Contador de caracteres */
+.char-count {
+  display: block; text-align: right; font-size: 0.72rem;
+  color: var(--text-light); margin-top: 0.3rem; transition: color .3s;
+}
+
+/* Feedback do formulário */
+.form-feedback {
+  padding: 0.85rem 1.1rem; border-radius: 0.7rem;
+  font-size: 0.84rem; font-weight: 500; margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.form-feedback.success {
+  background: #edf7f0; color: #2d7a4f; border: 1px solid #a8dbbf;
+}
+.form-feedback.error {
+  background: #fdf0f0; color: #c0392b; border: 1px solid #f0b8b8;
+}

@@ -617,26 +617,36 @@
         <h3>Envie uma Mensagem</h3>
         <p>Preencha o formulário e entrarei em contato em breve.</p>
         <form id="contactForm" novalidate>
+          <!-- Web3Forms: substitua pelo seu access key em web3forms.com -->
+          <input type="hidden" name="access_key" value="SEU_ACCESS_KEY_AQUI">
+          <input type="hidden" name="subject" value="Novo contato via site — Amanda Sarmento">
+          <input type="hidden" name="from_name" value="Site Amanda Sarmento">
           <div class="frow">
             <div class="fgroup">
               <label class="flabel" for="inputName">Nome Completo *</label>
-              <input type="text" class="finput" id="inputName" placeholder="Seu nome" required>
+              <input type="text" class="finput" id="inputName" name="name"
+                placeholder="Seu nome" maxlength="80" required>
             </div>
             <div class="fgroup">
               <label class="flabel" for="inputEmail">E-mail *</label>
-              <input type="email" class="finput" id="inputEmail" placeholder="nome@email.com" required>
+              <input type="email" class="finput" id="inputEmail" name="email"
+                placeholder="nome@email.com" maxlength="100" required>
             </div>
           </div>
           <div class="fgroup">
             <label class="flabel" for="inputPhone">WhatsApp</label>
-            <input type="tel" class="finput" id="inputPhone" placeholder="(00) 90000-0000">
+            <input type="tel" class="finput" id="inputPhone" name="whatsapp"
+              placeholder="(00) 90000-0000" maxlength="15">
           </div>
           <div class="fgroup">
             <label class="flabel" for="inputMessage">Mensagem *</label>
-            <textarea class="finput" id="inputMessage" placeholder="Como posso ajudar você?" required></textarea>
+            <textarea class="finput" id="inputMessage" name="message"
+              placeholder="Como posso ajudar você?" maxlength="1000" rows="4" required></textarea>
+            <span class="char-count" id="charCount">0 / 1000</span>
           </div>
+          <div id="formFeedback" class="form-feedback" style="display:none"></div>
           <div style="text-align:right">
-            <button type="submit" class="btn-rose">Enviar Mensagem <i class="bi bi-send"></i></button>
+            <button type="submit" id="submitBtn" class="btn-rose">Enviar Mensagem <i class="bi bi-send"></i></button>
           </div>
         </form>
       </div>
