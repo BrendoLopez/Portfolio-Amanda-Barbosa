@@ -16,6 +16,7 @@ import './css/contact.css'
 import './css/footer.css'
 import './css/feed.css'
 import './css/modal.css'
+import './css/location.css'
 import './css/whatsapp.css'
 import './css/responsive.css'
 
