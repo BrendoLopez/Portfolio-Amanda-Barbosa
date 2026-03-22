@@ -28,8 +28,12 @@
   width: 0; height: 1.5px; background: var(--accent); transition: width .3s;
 }
 .nav-links a:hover::after { width: 100%; }
+.nav-links a.active::after { width: 100%; }
+.nav-links a.active { color: var(--accent); }
 .navbar.scrolled .nav-links a { color: var(--text-medium); }
 .navbar.scrolled .nav-links a:hover { color: var(--primary); }
+.navbar.scrolled .nav-links a.active { color: var(--primary); }
+.mobile-menu a.active { color: var(--primary-light); }
 .nav-cta {
   font-size: 0.82rem; font-weight: 500; color: #fff;
   background: var(--grad-primary); padding: 0.58rem 1.5rem; border-radius: 50px;
