@@ -71,6 +71,15 @@
   }
   </script>
 
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z8M8M0XL8X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Z8M8M0XL8X');
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -644,5 +653,87 @@
 </a>
 
 <script type="module" src="/src/main.js"></script>
+
+<!-- GA4: Rastreamento de eventos customizados -->
+<script>
+  // --- Cliques em WhatsApp ---
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      gtag('event', 'whatsapp_click', {
+        event_category: 'contato',
+        event_label: el.closest('section, nav, footer, .wa-btn') ? (el.closest('.wa-btn') ? 'botao_flutuante' : el.closest('section')?.id || 'footer') : 'desconhecido'
+      });
+    });
+  });
+
+  // --- Cliques em Instagram ---
+  document.querySelectorAll('a[href*="instagram.com"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      gtag('event', 'instagram_click', {
+        event_category: 'redes_sociais',
+        event_label: el.closest('section, nav, footer') ? (el.closest('section')?.id || 'footer') : 'desconhecido'
+      });
+    });
+  });
+
+  // --- Cliques em Agendar ---
+  document.querySelectorAll('a[href*="agenda-amanda"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      gtag('event', 'agendamento_click', {
+        event_category: 'conversao',
+        event_label: el.closest('section, nav, .mobile-menu') ? (el.closest('section')?.id || el.closest('nav') ? 'navbar' : 'menu_mobile') : 'desconhecido'
+      });
+    });
+  });
+
+  // --- Envio do formulário de contato ---
+  var contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function() {
+      gtag('event', 'form_submit', {
+        event_category: 'contato',
+        event_label: 'formulario_contato'
+      });
+    });
+  }
+
+  // --- Scroll depth por seção (Intersection Observer) ---
+  var sections = ['home', 'sobre', 'servicos', 'galeria', 'depoimentos', 'contato'];
+  var viewedSections = {};
+  var sectionEnterTime = {};
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      var id = entry.target.id;
+      if (entry.isIntersecting) {
+        sectionEnterTime[id] = Date.now();
+        if (!viewedSections[id]) {
+          viewedSections[id] = true;
+          gtag('event', 'section_view', {
+            event_category: 'engajamento',
+            event_label: id
+          });
+        }
+      } else {
+        if (sectionEnterTime[id]) {
+          var seconds = Math.round((Date.now() - sectionEnterTime[id]) / 1000);
+          if (seconds >= 3) {
+            gtag('event', 'section_time', {
+              event_category: 'engajamento',
+              event_label: id,
+              value: seconds
+            });
+          }
+          delete sectionEnterTime[id];
+        }
+      }
+    });
+  }, { threshold: 0.3 });
+
+  sections.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+</script>
 </body>
 </html>
