@@ -1,8 +1,8 @@
 .hero {
   position: relative; min-height: 100vh;
   display: flex; align-items: center; justify-content: center;
-  background: url('/assets/img/medicine-capsules-global-health-with-geometric-pattern-digital-remix-1.jpg') center/cover no-repeat;
-  background-attachment: fixed; overflow: hidden;
+  background: var(--grad-primary);
+  overflow: hidden;
 }
 .hero-overlay { position: absolute; inset: 0; background: var(--grad-hero); }
 .hero-deco {
