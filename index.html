@@ -95,7 +95,8 @@
   <a href="#servicos"      onclick="closeMobile()">Serviços</a>
   <a href="#galeria"     onclick="closeMobile()">Galeria</a>
   <a href="#depoimentos" onclick="closeMobile()">Depoimentos</a>
-  <a href="#contato"     onclick="closeMobile()">Contato</a>
+  <a href="#contato"       onclick="closeMobile()">Contato</a>
+  <a href="#localizacao"   onclick="closeMobile()">Localização</a>
   <a href="https://agenda-amanda.netlify.app/" target="_blank" class="btn-rose" style="margin-top:.5rem">Agendar Consulta</a>
 </div>
 
@@ -113,6 +114,7 @@
       <li><a href="#galeria">Galeria</a></li>
       <li><a href="#depoimentos">Depoimentos</a></li>
       <li><a href="#contato">Contato</a></li>
+      <li><a href="#localizacao">Localização</a></li>
     </ul>
     <a href="https://agenda-amanda.netlify.app/" target="_blank" rel="noopener" class="nav-cta" aria-label="Agendar consulta online">Agendar</a>
     <button class="hamburger" onclick="openMobile()" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobileMenu">
@@ -607,7 +609,7 @@
 </section>
 
 <!-- LOCATION -->
-<section class="section-location" aria-label="Localização">
+<section class="section-location" id="localizacao" aria-label="Localização">
   <div class="container">
     <div class="location-card" data-aos="fade-up">
       <div class="location-info">
@@ -637,9 +639,19 @@
           </div>
         </div>
 
-        <a href="https://www.google.com/maps/place/Est%C3%A9tica+Amanda+Sarmento/@-20.3116512,-40.3011505,17z" target="_blank" rel="noopener" class="location-map-link" aria-label="Abrir localização no Google Maps">
-          Ver no Google Maps <i class="bi bi-arrow-right" aria-hidden="true"></i>
-        </a>
+        <div class="location-actions">
+          <a href="https://www.google.com/maps/place/Est%C3%A9tica+Amanda+Sarmento/@-20.3116512,-40.3011505,17z" target="_blank" rel="noopener" class="location-map-link" aria-label="Abrir localização no Google Maps">
+            Ver no Google Maps <i class="bi bi-arrow-right" aria-hidden="true"></i>
+          </a>
+          <div class="location-btns">
+            <button class="location-btn" id="btnCopyAddress" onclick="copyAddress()" aria-label="Copiar endereço">
+              <i class="bi bi-copy" aria-hidden="true"></i> Copiar endereço
+            </button>
+            <button class="location-btn" id="btnShareLocation" onclick="shareLocation()" aria-label="Compartilhar localização">
+              <i class="bi bi-share" aria-hidden="true"></i> Compartilhar
+            </button>
+          </div>
+        </div>
       </div>
 
       <div class="location-map">
@@ -673,18 +685,19 @@
           <li><a href="#home">Início</a></li>
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#servicos">Serviços</a></li>
-              <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#galeria">Galeria</a></li>
           <li><a href="#depoimentos">Depoimentos</a></li>
           <li><a href="#contato">Contato</a></li>
+          <li><a href="#localizacao">Localização</a></li>
         </ul>
       </div>
       <div>
         <p class="footer-head">Serviços</p>
         <ul class="footer-links">
-          <li><a href="#servicos">Limpeza de Pele</a></li>
-          <li><a href="#servicos">Consulta de Skincare</a></li>
-          <li><a href="#servicos">Plano de Tratamento</a></li>
-          <li><a href="#servicos">Dermocosméticos</a></li>
+          <li><a href="#servicos">Limpeza de Pele Facial</a></li>
+          <li><a href="#servicos">Limpeza Profunda + Peeling Coreano</a></li>
+          <li><a href="#servicos">Limpeza de Costas</a></li>
+          <li><a href="#servicos">Protocolo Skincare Completo</a></li>
           <li><a href="https://agenda-amanda.netlify.app/" target="_blank">Agendamento Online</a></li>
         </ul>
       </div>
@@ -692,6 +705,7 @@
     <div class="footer-bottom">
       <span>© <span id="year"></span> Amanda Sarmento · Farmacêutica &amp; Esteticista</span>
       <span>Praia do Suá, Vitória — ES · Feito com <i class="bi bi-heart-fill" style="color:var(--primary-light)" aria-hidden="true"></i></span>
+      <span>Desenvolvido por <a href="https://www.linkedin.com/in/brendo-lopes-2a9144195/" target="_blank" rel="noopener" style="color:var(--primary);font-weight:500;text-decoration:none;">Brendo Lopes</a></span>
     </div>
   </div>
 </footer>
@@ -702,6 +716,44 @@
 </a>
 
 <script type="module" src="/src/main.js"></script>
+
+<!-- Localização: copiar e compartilhar -->
+<script>
+  var MAPS_URL = 'https://www.google.com/maps/place/Est%C3%A9tica+Amanda+Sarmento/@-20.3116512,-40.3011505,17z';
+  var ADDRESS_TEXT = 'Rua Padre Antônio Ribeiro 38, loja 7 — Praia do Suá, Vitória, ES, 29052-290';
+
+  function copyAddress() {
+    navigator.clipboard.writeText(ADDRESS_TEXT).then(function() {
+      var btn = document.getElementById('btnCopyAddress');
+      btn.innerHTML = '<i class="bi bi-check2" aria-hidden="true"></i> Copiado!';
+      btn.classList.add('copied');
+      setTimeout(function() {
+        btn.innerHTML = '<i class="bi bi-copy" aria-hidden="true"></i> Copiar endereço';
+        btn.classList.remove('copied');
+      }, 2500);
+    });
+  }
+
+  function shareLocation() {
+    if (navigator.share) {
+      navigator.share({
+        title: 'Estética Amanda Sarmento',
+        text: 'Veja a localização da Estética Amanda Sarmento — ' + ADDRESS_TEXT,
+        url: MAPS_URL
+      });
+    } else {
+      navigator.clipboard.writeText(MAPS_URL).then(function() {
+        var btn = document.getElementById('btnShareLocation');
+        btn.innerHTML = '<i class="bi bi-check2" aria-hidden="true"></i> Link copiado!';
+        btn.classList.add('copied');
+        setTimeout(function() {
+          btn.innerHTML = '<i class="bi bi-share" aria-hidden="true"></i> Compartilhar';
+          btn.classList.remove('copied');
+        }, 2500);
+      });
+    }
+  }
+</script>
 
 <!-- GA4: Rastreamento de eventos customizados -->
 <script>

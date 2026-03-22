@@ -76,6 +76,45 @@
 }
 .location-map-link:hover { gap: 0.7rem; }
 
+.location-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.4rem;
+}
+
+.location-btns {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.location-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-medium);
+  background: var(--bg-blush);
+  border: 1px solid rgba(200,112,122,0.18);
+  border-radius: 2rem;
+  padding: 0.45rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  font-family: inherit;
+}
+.location-btn:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+.location-btn.copied {
+  background: #4caf7d;
+  color: #fff;
+  border-color: #4caf7d;
+}
+
 .location-map {
   position: relative;
   min-height: 280px;
