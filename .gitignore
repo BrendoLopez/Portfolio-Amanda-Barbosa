@@ -27,3 +27,10 @@ Thumbs.db
 .env
 .env.local
 .env.*.local
+
+# Netlify
+.netlify/
+
+# Vite temp files
+vite.config.js.timestamp*
+*.local
