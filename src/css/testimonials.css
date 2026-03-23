@@ -18,3 +18,37 @@
 }
 .testi-name { font-weight: 600; font-size: 0.86rem; color: var(--text-dark); }
 .testi-svc { font-size: 0.74rem; color: var(--text-light); }
+
+/* CTA Avaliação Google */
+.review-cta {
+  text-align: center;
+  padding: 2rem 1rem 0;
+}
+.review-cta-stars {
+  color: var(--accent);
+  font-size: 1.3rem;
+  letter-spacing: 4px;
+  margin-bottom: 0.6rem;
+}
+.review-cta-text {
+  font-size: 0.9rem;
+  color: var(--text-medium);
+  margin-bottom: 1.2rem;
+}
+.btn-review-google {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.65rem 1.6rem;
+  border: 1.5px solid #dadce0;
+  border-radius: 50px;
+  background: #fff;
+  font-size: 0.85rem; font-weight: 500;
+  color: #3c4043;
+  text-decoration: none;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+  transition: box-shadow .25s, border-color .25s;
+}
+.btn-review-google:hover {
+  box-shadow: 0 3px 14px rgba(0,0,0,0.14);
+  border-color: #bbb;
+  color: #3c4043;
+}
