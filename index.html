@@ -757,33 +757,43 @@
 
 <!-- GA4: Rastreamento de eventos customizados -->
 <script>
+  var secaoNomes = {
+    home:        'Início',
+    sobre:       'Sobre',
+    servicos:    'Serviços',
+    galeria:     'Galeria',
+    depoimentos: 'Depoimentos',
+    contato:     'Contato',
+    localizacao: 'Localização'
+  };
+
+  function origemDoElemento(el) {
+    if (el.closest('.wa-btn'))      return 'Botão Flutuante';
+    if (el.closest('.mobile-menu')) return 'Menu Mobile';
+    if (el.closest('nav'))          return 'Navbar';
+    if (el.closest('footer'))       return 'Rodapé';
+    var sec = el.closest('section');
+    return sec ? (secaoNomes[sec.id] || sec.id) : 'Desconhecido';
+  }
+
   // --- Cliques em WhatsApp ---
   document.querySelectorAll('a[href*="wa.me"]').forEach(function(el) {
     el.addEventListener('click', function() {
-      gtag('event', 'whatsapp_click', {
-        event_category: 'contato',
-        event_label: el.closest('section, nav, footer, .wa-btn') ? (el.closest('.wa-btn') ? 'botao_flutuante' : el.closest('section')?.id || 'footer') : 'desconhecido'
-      });
+      gtag('event', 'clique_whatsapp', { origem: origemDoElemento(el) });
     });
   });
 
   // --- Cliques em Instagram ---
   document.querySelectorAll('a[href*="instagram.com"]').forEach(function(el) {
     el.addEventListener('click', function() {
-      gtag('event', 'instagram_click', {
-        event_category: 'redes_sociais',
-        event_label: el.closest('section, nav, footer') ? (el.closest('section')?.id || 'footer') : 'desconhecido'
-      });
+      gtag('event', 'clique_instagram', { origem: origemDoElemento(el) });
     });
   });
 
   // --- Cliques em Agendar ---
   document.querySelectorAll('a[href*="agenda-amanda"]').forEach(function(el) {
     el.addEventListener('click', function() {
-      gtag('event', 'agendamento_click', {
-        event_category: 'conversao',
-        event_label: el.closest('section, nav, .mobile-menu') ? (el.closest('section')?.id || el.closest('nav') ? 'navbar' : 'menu_mobile') : 'desconhecido'
-      });
+      gtag('event', 'clique_agendamento', { origem: origemDoElemento(el) });
     });
   });
 
@@ -791,47 +801,36 @@
   var contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', function() {
-      gtag('event', 'form_submit', {
-        event_category: 'contato',
-        event_label: 'formulario_contato'
-      });
+      gtag('event', 'envio_formulario');
     });
   }
 
-  // --- Scroll depth por seção (Intersection Observer) ---
-  var sections = ['home', 'sobre', 'servicos', 'galeria', 'depoimentos', 'contato'];
-  var viewedSections = {};
-  var sectionEnterTime = {};
+  // --- Visualização e tempo por seção ---
+  var secoes = ['home', 'sobre', 'servicos', 'galeria', 'depoimentos', 'contato', 'localizacao'];
+  var visto = {};
+  var entrou = {};
 
   var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       var id = entry.target.id;
+      var nome = secaoNomes[id] || id;
       if (entry.isIntersecting) {
-        sectionEnterTime[id] = Date.now();
-        if (!viewedSections[id]) {
-          viewedSections[id] = true;
-          gtag('event', 'section_view', {
-            event_category: 'engajamento',
-            event_label: id
-          });
+        entrou[id] = Date.now();
+        if (!visto[id]) {
+          visto[id] = true;
+          gtag('event', 'visualizou_secao', { secao: nome });
         }
-      } else {
-        if (sectionEnterTime[id]) {
-          var seconds = Math.round((Date.now() - sectionEnterTime[id]) / 1000);
-          if (seconds >= 3) {
-            gtag('event', 'section_time', {
-              event_category: 'engajamento',
-              event_label: id,
-              value: seconds
-            });
-          }
-          delete sectionEnterTime[id];
+      } else if (entrou[id]) {
+        var segundos = Math.round((Date.now() - entrou[id]) / 1000);
+        if (segundos >= 3) {
+          gtag('event', 'tempo_na_secao', { secao: nome, segundos: segundos });
         }
+        delete entrou[id];
       }
     });
   }, { threshold: 0.3 });
 
-  sections.forEach(function(id) {
+  secoes.forEach(function(id) {
     var el = document.getElementById(id);
     if (el) observer.observe(el);
   });
