@@ -18,6 +18,7 @@ import './css/feed.css'
 import './css/modal.css'
 import './css/location.css'
 import './css/whatsapp.css'
+import './css/exit-popup.css'
 import './css/responsive.css'
 
 // JavaScript modular
@@ -25,3 +26,4 @@ import './js/aos-init.js'
 import './js/navbar.js'
 import './js/feed.js'
 import './js/form.js'
+import './js/exit-popup.js'
