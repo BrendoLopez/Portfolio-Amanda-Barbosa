@@ -1,5 +1,5 @@
 const STORAGE_KEY = 'amanda_exit_shown';
-const MIN_TIME_MS = 12000; // só mostra após 12s na página
+const MIN_TIME_MS = 10000; // só mostra após 10's na página
 
 const entryTime = Date.now();
 let shown = false;

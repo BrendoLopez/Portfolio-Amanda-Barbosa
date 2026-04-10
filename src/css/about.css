@@ -24,3 +24,5 @@
 }
 .location-note { font-size: 0.8rem; color: var(--text-light); margin-bottom: 1.8rem; }
 .location-note i { color: var(--primary); margin-right: 0.3rem; }
+.location-note a { color: var(--text-medium); text-decoration: none; transition: color 0.3s; }
+.location-note a:hover { color: var(--primary); }

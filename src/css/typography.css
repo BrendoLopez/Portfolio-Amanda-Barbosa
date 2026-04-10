@@ -4,7 +4,7 @@
   font-weight: 600;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--primary);
+  color: var(--primary-dark);
   margin-bottom: 0.75rem;
 }
 .section-title {
